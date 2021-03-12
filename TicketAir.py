@@ -36,3 +36,30 @@ class Ticket:
 
     def buyTicket(self, passenger):
         passenger.tickets.append(self)
+
+class Passenger:
+    def __init__(self):
+        self.name = None
+        self.tickets = None
+        self.address = None
+
+    def __int__(self, name, tickets, address):
+        self.name = name
+        self.tickets = tickets
+        self.address = address
+
+class Admin (Passenger):
+        def __init__(self):
+            super().__init__()
+
+        def addFlight(self, flight):
+            flight.add(self)
+
+        def addPlane(self, plane):
+            plane.add(self)
+
+        def cancelFlight(self, flight):
+            flight.cancel(self)
+
+        def removePlane(self, plane):
+            plane.remove(self)
