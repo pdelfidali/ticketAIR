@@ -30,6 +30,9 @@ class Plane:
         self.capacity = capacity
         self.tailNumber = tailNumber
 
+    def values(self):
+        return f'("{self.tailNumber}", "{self.yearOfProduction}", "{self.flightMiles}", "{self.capacity}")'
+
 class Ticket:
     def __init__(self):
         self.flight = None
@@ -49,11 +52,20 @@ class Passenger:
         self.name = None
         self.tickets = None
         self.address = None
+        self.password = None
+        self.login = None
 
-    def __int__(self, name, tickets, address):
+    def __int__(self, name, tickets, address, password, login):
         self.name = name
         self.tickets = tickets
         self.address = address
+        self.password = password
+        self.login = login
+
+    def values(self):
+        #Trzeba dodać ID
+        isAdmin = int(isinstance(self, Admin))
+        return f'("ID", "{self.name}", "{self.tickets}", "{isAdmin}", "{self.password}", "{self.login}")'
 
 class Admin (Passenger):
         def __init__(self):
@@ -75,7 +87,7 @@ class DataBase:
     def __init__(self):
         print("Init")
 
-    def create_tables():
+    def create_tables(self):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         cur.execute('''CREATE TABLE flights
@@ -104,8 +116,24 @@ class DataBase:
         con.commit()
         con.close()
 
+    def addPlane(self, plane):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute('INSERT INTO planes VALUES ' + plane.values())
+        con.commit()
+        con.close()
+
+    def addUser(self, user):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute('INSERT INTO users VALUES ' + user.values())
+        con.commit()
+        con.close()
+
+
 if __name__ == '__main__':
     boeing737 = Plane(2000, 0, 150, 'LOTPL2115')
     KRK2WAW = Flight('Krakow', 'Warszawa', 'LOT0354', boeing737)
     db = DataBase()
+    db.addPlane(boeing737)
     db.addFlight(KRK2WAW)
