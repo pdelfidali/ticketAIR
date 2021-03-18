@@ -108,6 +108,7 @@ class Ui_LOGINWindow(object):
         self.avatar.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.avatar.setFrameShadow(QtWidgets.QFrame.Raised)
         self.avatar.setObjectName("avatar")
+        self.avatar.setStyleSheet("background-image: url(:/User/avatarv3.png);\n")
         self.USERLabel = QtWidgets.QLineEdit(self.PASSWORDLabel)
         self.USERLabel.setGeometry(QtCore.QRect(120, 340, 200, 45))
         font = QtGui.QFont()
