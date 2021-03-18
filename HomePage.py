@@ -440,7 +440,7 @@ class Ui_MainWindow(object):
         self.NOTFOUNDEDButton.setObjectName("NOTFOUNDEDButton")
         self.horizontalLayout_4.addWidget(self.NOTFOUNDEDButton)
         self.label_5 = QtWidgets.QLabel(self.content_right)
-        self.label_5.setGeometry(QtCore.QRect(90, 590, 251, 71))
+        self.label_5.setGeometry(QtCore.QRect(90, 600, 300, 71))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(18)
