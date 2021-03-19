@@ -90,22 +90,30 @@ class DataBase:
     def create_tables(self):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        cur.execute('''CREATE TABLE flights
-                        (origin text, destination text, flightNumber text, planeTailNumber text)
-                    ''')
-        print("Flights added")
-        cur.execute('''CREATE TABLE planes
-                        (tailNumber text, year integer, flightMiles real, capacity integer)
-                    ''')
-        print("Planes added")
-        cur.execute('''CREATE TABLE users
-                        (userID text, name text, ticketsIDs text, isAdmin integer, password text, login text)
-                    ''')
-        print("Users added")
-        cur.execute('''CREATE TABLE tickets
-                        (flightNumber text, day text, price real)
-                    ''')
-        print("Tickets added")
+        try:
+            cur.execute('''CREATE TABLE flights
+                            (origin text, destination text, flightNumber text, planeTailNumber text)
+                        ''')
+        except sqlite3.OperationalError:
+            pass
+        try:
+            cur.execute('''CREATE TABLE planes
+                            (tailNumber text, year integer, flightMiles real, capacity integer)
+                        ''')
+        except sqlite3.OperationalError:
+            pass
+        try:
+            cur.execute('''CREATE TABLE users
+                            (userID text, name text, ticketsIDs text, isAdmin integer, password text, login text)
+                        ''')
+        except sqlite3.OperationalError:
+            pass
+        try:
+            cur.execute('''CREATE TABLE tickets
+                            (flightNumber text, day text, price real)
+                        ''')
+        except sqlite3.OperationalError:
+            pass
         con.commit()
         con.close()
 
@@ -130,10 +138,57 @@ class DataBase:
         con.commit()
         con.close()
 
+    def getPlane(self, tailNumber):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'SELECT * FROM planes WHERE tailNumber = "{tailNumber}"')
+        tailNumber, year, flightMiles, capacity = cur.fetchone()
+        con.close()
+        return Plane(year, flightMiles, capacity, tailNumber)
+
+    def getDestinations(self, origin):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'SELECT * FROM flights WHERE origin="{origin}"')
+
+        rows = cur.fetchall()
+        destinations = []
+        for origin, destination, flightNumber, planeTailNumber in rows:
+            destination.append(Flight(origin, destination, flightNumber, DataBase.getPlane(tailNumber=planeTailNumber)))
+        con.close()
+        return destinations
+
+    def getOrigins(self, destination):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'SELECT * FROM flights WHERE destination="{destination}"')
+
+        rows = cur.fetchall()
+        destinations = []
+        for origin, destination, flightNumber, planeTailNumber in rows:
+            destination.append(Flight(origin, destination, flightNumber, DataBase.getPlane(tailNumber=planeTailNumber)))
+        con.close()
+        return destinations
+
+
+    def login(self, login, password):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'SELECT * FROM users WHERE login="{login}"')
+
+        userID, name, ticketsIDs, isAdmin, passwordData, loginData = cur.fetchone()
+        con.close()
+        if passwordData == password:
+            return Passenger(name, ticketsIDs, "", password, loginData)
+        else:
+            return None
+
 
 if __name__ == '__main__':
+    currentUser = None
     boeing737 = Plane(2000, 0, 150, 'LOTPL2115')
     KRK2WAW = Flight('Krakow', 'Warszawa', 'LOT0354', boeing737)
     db = DataBase()
-    db.addPlane(boeing737)
-    db.addFlight(KRK2WAW)
+    plane = db.getPlane('LOTPL2115')
+    print(plane.values())
+    db.create_tables()
