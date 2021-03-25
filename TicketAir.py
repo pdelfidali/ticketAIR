@@ -6,15 +6,21 @@ class Flight:
         self.destination = ''
         self.flightNumber = ''
         self.airplane = None
+        self.date = None
+        self.price = 0
+        self.time = 0
 
-    def __init__(self, origin, destination, flightNumber, airplane):
+    def __init__(self, origin, destination, flightNumber, airplane, date, price, time):
         self.origin = origin
         self.destination = destination
         self.flightNumber = flightNumber
         self.airplane = airplane
+        self.date = date
+        self.price = price
+        self.time = time
 
     def values(self):
-        return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.airplane.tailNumber}")'
+        return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.airplane.tailNumber}", "{self.date}", {self.price}, {self.time})'
 
 
 class Plane:
@@ -92,7 +98,7 @@ class DataBase:
         cur = con.cursor()
         try:
             cur.execute('''CREATE TABLE flights
-                            (origin text, destination text, flightNumber text, planeTailNumber text)
+                            (origin text, destination text, flightNumber text, planeTailNumber text, date text, price real, time real)
                         ''')
         except sqlite3.OperationalError:
             pass
@@ -183,12 +189,24 @@ class DataBase:
         else:
             return None
 
+    def cancelFlight(self, flightNumber):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'DELETE FROM flights WHERE flightNumber="{flightNumber}"')
+        con.close()
+
+    def removePlane(self, tailNumber):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'DELETE FROM planes WHERE tailNumber="{tailNumber}"')
+        con.close()
 
 if __name__ == '__main__':
     currentUser = None
     boeing737 = Plane(2000, 0, 150, 'LOTPL2115')
-    KRK2WAW = Flight('Krakow', 'Warszawa', 'LOT0354', boeing737)
+    KRK2WAW = Flight('Krakow', 'Warszawa', 'LOT0354', boeing737, '12/12/25', 15, 0.80)
     db = DataBase()
     plane = db.getPlane('LOTPL2115')
     print(plane.values())
+    print(KRK2WAW.values())
     db.create_tables()
