@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from TicketAir import Plane
 
 class Ui_SearchPlane(object):
     def setupUi(self, SearchPlane):
@@ -137,7 +137,6 @@ class Ui_SearchPlane(object):
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1140, 18))
         self.menubar.setObjectName("menubar")
         SearchPlane.setMenuBar(self.menubar)
-
         self.retranslateUi(SearchPlane)
         QtCore.QMetaObject.connectSlotsByName(SearchPlane)
 
@@ -151,7 +150,19 @@ class Ui_SearchPlane(object):
         self.YEAROFPRLabel.setText(_translate("SearchPlane", "2008"))
         self.FLIGHTMILESLabel.setText(_translate("SearchPlane", "15998"))
         self.CAPACITYLabel.setText(_translate("SearchPlane", "650"))
+
+    def setPlane(self, plane):
+        _translate = QtCore.QCoreApplication.translate
+        self.TAILNUMBERLabel.setText(_translate("SearchPlane", str(plane.tailNumber)))
+        self.label_2.setText(_translate("SearchPlane", "YEAR OF PRODUCTION:"))
+        self.label_3.setText(_translate("SearchPlane", "FLIGHT MILES:"))
+        self.label_4.setText(_translate("SearchPlane", "CAPACITY:"))
+        self.YEAROFPRLabel.setText(_translate("SearchPlane", str(plane.yearOfProduction)))
+        self.FLIGHTMILESLabel.setText(_translate("SearchPlane", str(plane.flightMiles)))
+        self.CAPACITYLabel.setText(_translate("SearchPlane", str(plane.capacity)))
 import file
+
+
 
 
 if __name__ == "__main__":
@@ -161,4 +172,6 @@ if __name__ == "__main__":
     ui = Ui_SearchPlane()
     ui.setupUi(SearchPlane)
     SearchPlane.show()
+    boeing737 = Plane(2000, 0, 150, 'LOTPL2115')
+    ui.setPlane(boeing737)
     sys.exit(app.exec_())
