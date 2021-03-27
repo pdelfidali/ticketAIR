@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1271</width>
+    <height>920</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="top_bar">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 127);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="ERRORFrame">
+         <property name="maximumSize">
+          <size>
+           <width>450</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(170, 255, 127);
+border-radius: 5px;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="spacing">
+           <number>3</number>
+          </property>
+          <property name="leftMargin">
+           <number>3</number>
+          </property>
+          <property name="topMargin">
+           <number>3</number>
+          </property>
+          <property name="rightMargin">
+           <number>3</number>
+          </property>
+          <property name="bottomMargin">
+           <number>3</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="ERRORLabel">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>ERROR</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="ERRORXButton">
+            <property name="maximumSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	border-raadius: 5px;
+	background-position: centre;
+	border: 2px solid;
+}
+
+QPushButton:hover {
+	background-color: rgb(50, 50, 50);
+	color: rgb(255, 234, 70);
+}
+
+QPushButton:pressed {
+	background-color: rgb(35, 35, 35);
+	color: rgb(255, 234, 70);
+}</string>
+            </property>
+            <property name="text">
+             <string>X</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="content">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(143, 143, 143);
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="MAINLabel">
+         <property name="maximumSize">
+          <size>
+           <width>1500</width>
+           <height>750</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(30, 30, 30);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLineEdit" name="FROMAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>270</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid  rgb(170, 255, 255);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>FROM</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ADDFLIGHTButton">
+          <property name="geometry">
+           <rect>
+            <x>1080</x>
+            <y>270</y>
+            <width>131</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	background-color: rgb(170, 255, 255);
+	border: 2px solid rgb(60,60,60);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(60, 60, 60);
+	border: 2px solid rgb(70,70,70);
+	border-radius: 5px;
+}
+
+QPushButton:pressed {
+	background-color:  rgb(170, 255, 255);
+	border: 2px solid rgb(0,0,0);
+	border-radius: 5px;
+	
+	color: rgb(35, 35, 35);
+}</string>
+          </property>
+          <property name="text">
+           <string>ADD FLIGHT</string>
+          </property>
+         </widget>
+         <widget class="QFrame" name="SETTINGSIcon">
+          <property name="geometry">
+           <rect>
+            <x>940</x>
+            <y>460</y>
+            <width>291</width>
+            <height>291</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/LOGO/img/setting.jpg);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>200</y>
+            <width>111</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>FLIGHT</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="DELETEFLIGHTButton">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>360</y>
+            <width>121</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	background-color: rgb(17, 217, 217);
+	border: 2px solid rgb(60,60,60);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(60, 60, 60);
+	border: 2px solid rgb(70,70,70);
+	border-radius: 5px;
+}
+
+QPushButton:pressed {
+	background-color:rgb(17, 217, 217);
+	border: 2px solid rgb(0,0,0);
+	border-radius: 5px;
+	
+	color: rgb(35, 35, 35);
+}</string>
+          </property>
+          <property name="text">
+           <string>DELETE FLIGHT</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ADDPLANEButton">
+          <property name="geometry">
+           <rect>
+            <x>670</x>
+            <y>580</y>
+            <width>131</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	background-color: rgb(0, 146, 208);
+	border: 2px solid rgb(60,60,60);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(60, 60, 60);
+	border: 2px solid rgb(70,70,70);
+	border-radius: 5px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 146, 208);
+	border: 2px solid rgb(0,0,0);
+	border-radius: 5px;
+	
+	color: rgb(35, 35, 35);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>ADD PLANE</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="DELETEPLANEButton">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>650</y>
+            <width>131</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	background-color: rgb(12, 143, 143);
+	border: 2px solid rgb(60,60,60);
+	border-radius: 5px;
+}
+
+QPushButton:hover {
+	background-color: rgb(60, 60, 60);
+	border: 2px solid rgb(70,70,70);
+	border-radius: 5px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(12, 143, 143);
+	border: 2px solid rgb(0,0,0);
+	border-radius: 5px;
+	
+	color: rgb(35, 35, 35);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>DELETE PLANE</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="TOAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>270</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid  rgb(170, 255, 255);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>TO</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="DATEAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>320</x>
+            <y>270</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid  rgb(170, 255, 255);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>DATE</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="TIMEAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>270</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid  rgb(170, 255, 255);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>TIME</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="FLIGHTNUMBERAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>620</x>
+            <y>270</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid  rgb(170, 255, 255);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>FLIGHT NUMBER</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="PLANENUMBERAddFlightLabel">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>270</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid  rgb(170, 255, 255);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>PLANE NUMBER</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="PRICEAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>920</x>
+            <y>270</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid  rgb(170, 255, 255);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>PRICE</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="Line1">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>230</y>
+            <width>1021</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="FLIGHTNUMBERDeleteLabel">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>360</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid rgb(17, 217, 217);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>FLIGHT NUMBER</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="Line2">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>530</y>
+            <width>631</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>____________________________________________________________________________________________________________________________________________</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>50</x>
+            <y>500</y>
+            <width>111</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>PLANE</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="PLANENUMBERAddPlaneLabel">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>580</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid rgb(0, 146, 208);
+	color: rgb(200,200,200);
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>PLANE NUMBER</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="YEAROFPRDAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>580</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid rgb(0, 146, 208);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>YEAR OF PRODUCTION</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="FLIGHTSMILESAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>340</x>
+            <y>580</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid rgb(0, 146, 208);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>FLIGHTS MILES</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="CAPACITYAddLabel">
+          <property name="geometry">
+           <rect>
+            <x>500</x>
+            <y>580</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid rgb(0, 146, 208);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>CAPACITY</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="PLANENUMBERDeleteLabel">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>650</y>
+            <width>141</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 8px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	color: rgb(100, 100, 100);
+	color: rgb(255, 255, 255);	
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid rgb(12, 143, 143);
+	color: rgb(200,200,200);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>PLANE NUMBER</string>
+          </property>
+         </widget>
+         <widget class="QFrame" name="ADMINIcon">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>10</y>
+            <width>231</width>
+            <height>211</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/LOGO/img/admin.png);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="bottom">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 127);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1271</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../img/file.qrc"/>
+  <include location="../../TRY/ticketAIR/file.qrc"/>
+ </resources>
+ <connections/>
+</ui>
