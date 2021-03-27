@@ -14,6 +14,9 @@
     <file>img/wordmap.png</file>
     <file>logo.png</file>
   </qresource>
+  <qresource prefix="LOGO">
+    <file>img/logo.png</file>
+  </qresource>
   <qresource prefix="PlanePanel"/>
   <qresource prefix="newPrefix">
     <file>img/PlaneSearchResize.jpg</file>
