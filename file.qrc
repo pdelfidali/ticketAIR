@@ -21,6 +21,10 @@
   <qresource prefix="newPrefix">
     <file>img/PlaneSearchResize.jpg</file>
   </qresource>
+  <qresource prefix="newPrefix"/>
+  <qresource prefix="newPrefix">
+    <file>img/planeinside.jpg</file>
+  </qresource>
   <qresource prefix="MainPage">
     <file>img/login_homepage.png</file>
   </qresource>
