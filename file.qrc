@@ -14,11 +14,8 @@
     <file>img/wordmap.png</file>
     <file>logo.png</file>
   </qresource>
-  <qresource prefix="AdminPanel"/>
   <qresource prefix="LOGO">
     <file>img/logo.png</file>
-    <file>img/admin.png</file>
-    <file>img/setting.jpg</file>
   </qresource>
   <qresource prefix="PlanePanel"/>
   <qresource prefix="newPrefix">
@@ -34,9 +31,5 @@
   <qresource prefix="newPrefix"/>
   <qresource prefix="User">
     <file>img/userv3.png</file>
-  </qresource>
-  <qresource prefix="user2">
-    <file>img/userv2.png</file>
-    <file>img/admin.png</file>
   </qresource>
 </RCC>
