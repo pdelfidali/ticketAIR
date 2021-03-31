@@ -217,6 +217,8 @@ class Ui_LOGINWindow(object):
         self.retranslateUi(LOGINWindow)
         QtCore.QMetaObject.connectSlotsByName(LOGINWindow)
 
+        self.NEWUSERBox
+
     def retranslateUi(self, LOGINWindow):
         _translate = QtCore.QCoreApplication.translate
         LOGINWindow.setWindowTitle(_translate("LOGINWindow", "Login"))

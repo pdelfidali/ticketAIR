@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import TicketAir
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -627,6 +627,9 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.FROMComboBox.activated.connect(self.setDestinations)
+
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -659,6 +662,39 @@ class Ui_MainWindow(object):
         self.CURRENCYLabel2.setText(_translate("MainWindow", "€"))
         self.CURRENCYLabel3.setText(_translate("MainWindow", "€"))
         self.PRICELabel3.setText(_translate("MainWindow", "59 "))
+
+    def setDestinations(self):
+        if self.FROMComboBox.currentIndex() != 0:
+            self.TOComboBox.enabled = True
+            db = TicketAir.DataBase()
+            self.TOComboBox.clear()
+            self.TOComboBox.insertItem(1, '')
+            destinations = db.getDestinations(str(self.FROMComboBox.currentText()))
+            print(str(self.FROMComboBox.currentText()))
+            i = 2
+            try:
+                for destination in destinations:
+                    self.TOComboBox.insertItem(i, destination)
+                    i += 1
+            except:
+                pass
+        else:
+            self.TOComboBox.enabled = False
+            self.TOComboBox.clear()
+
+    def setOrigins(self):
+        db = TicketAir.DataBase()
+        self.FROMComboBox.insertItem(1, '')
+        origins = db.getOrigins(str(self.TOComboBox.currentText()))
+        i = 2
+        try:
+            for origin in origins:
+                self.FROMComboBox.insertItem(i, origin)
+                i += 1
+        except:
+            pass
+
+
 import file
 
 
@@ -668,5 +704,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    ui.setOrigins()
     MainWindow.show()
     sys.exit(app.exec_())

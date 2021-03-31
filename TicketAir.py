@@ -90,9 +90,6 @@ class Admin (Passenger):
             plane.remove(self)
 
 class DataBase:
-    def __init__(self):
-        print("Init")
-
     def create_tables(self):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
@@ -152,29 +149,29 @@ class DataBase:
         con.close()
         return Plane(year, flightMiles, capacity, tailNumber)
 
-    def getDestinations(self, origin):
+    def getDestinations(self, origin = None):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        cur.execute(f'SELECT * FROM flights WHERE origin="{origin}"')
-
-        rows = cur.fetchall()
+        if origin == None or origin == '':
+            cur.execute(f'SELECT DISTINCT destination FROM flights')
+        else:
+            cur.execute(f'SELECT DISTINCT destination FROM flights WHERE origin="{origin}"')
         destinations = []
-        for origin, destination, flightNumber, planeTailNumber in rows:
-            destination.append(Flight(origin, destination, flightNumber, DataBase.getPlane(tailNumber=planeTailNumber)))
-        con.close()
+        for dest, in cur.fetchall():
+            destinations.append(str(dest))
         return destinations
 
-    def getOrigins(self, destination):
+    def getOrigins(self, destination = None):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        cur.execute(f'SELECT * FROM flights WHERE destination="{destination}"')
-
-        rows = cur.fetchall()
-        destinations = []
-        for origin, destination, flightNumber, planeTailNumber in rows:
-            destination.append(Flight(origin, destination, flightNumber, DataBase.getPlane(tailNumber=planeTailNumber)))
-        con.close()
-        return destinations
+        if destination == None or destination == '':
+            cur.execute(f'SELECT DISTINCT origin FROM flights')
+        else:
+            cur.execute(f'SELECT DISTINCT origin FROM flights WHERE destination="{destination}"')
+        origins = []
+        for origin, in cur.fetchall():
+            origins.append(str(origin))
+        return origins
 
 
     def login(self, login, password):
@@ -203,10 +200,6 @@ class DataBase:
 
 if __name__ == '__main__':
     currentUser = None
-    boeing737 = Plane(2000, 0, 150, 'LOTPL2115')
-    KRK2WAW = Flight('Krakow', 'Warszawa', 'LOT0354', boeing737, '12/12/25', 15, 0.80)
     db = DataBase()
-    plane = db.getPlane('LOTPL2115')
-    print(plane.values())
-    print(KRK2WAW.values())
     db.create_tables()
+    print(db.getDestinations('Warszawa'))
