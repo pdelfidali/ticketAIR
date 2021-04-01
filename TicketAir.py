@@ -10,17 +10,22 @@ class Flight:
         self.price = 0
         self.time = 0
 
-    def __init__(self, origin, destination, flightNumber, airplane, date, price, time):
+    def __init__(self, origin, destination, flightNumber, plane, date, price, time):
         self.origin = origin
         self.destination = destination
         self.flightNumber = flightNumber
-        self.airplane = airplane
+        if isinstance(plane, str):
+            print('this')
+            plane = DataBase().getPlane(plane)
+        self.plane = plane
         self.date = date
         self.price = price
         self.time = time
+        print('init done')
 
     def values(self):
-        return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.airplane.tailNumber}", "{self.date}", {self.price}, {self.time})'
+        print('values')
+        return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.plane.tailNumber}", "{self.date}", {self.price}, {self.time})'
 
 
 class Plane:
@@ -123,6 +128,7 @@ class DataBase:
     def addFlight(self, flight):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
+        print('executed INSERT INTO flights VALUES ' + flight.values())
         cur.execute('INSERT INTO flights VALUES ' + flight.values())
         con.commit()
         con.close()
@@ -190,16 +196,22 @@ class DataBase:
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         cur.execute(f'DELETE FROM flights WHERE flightNumber="{flightNumber}"')
+        con.commit()
         con.close()
 
     def removePlane(self, tailNumber):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        cur.execute(f'DELETE FROM planes WHERE tailNumber="{tailNumber}"')
+        print(f"DELETE FROM planes WHERE tailNumber='{tailNumber}'")
+        cur.execute(f"DELETE FROM planes WHERE tailNumber='{tailNumber}'")
+        con.commit()
         con.close()
 
 if __name__ == '__main__':
-    currentUser = None
+    con = sqlite3.connect('ticketair.db')
+    cur = con.cursor()
     db = DataBase()
     db.create_tables()
-    print(db.getDestinations('Warszawa'))
+    cur.execute("""INSERT INTO flights VALUES ("123", "123", "123", "123", "123", 123, 123.0)""")
+    con.commit()
+    con.close()

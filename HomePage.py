@@ -10,6 +10,9 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import TicketAir
+from LoginWidget import Ui_LOGINWidget
+from AdminWidget import Ui_ADMINPanel
+from SearchPlaneWidget import Ui_SEARCHPLANEPanel
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -628,7 +631,11 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.FROMComboBox.activated.connect(self.setDestinations)
-
+        self.LOGINButton.clicked.connect(self.showLoginWidget)
+        self.AMINPANELButton.clicked.connect(self.showAdminPanel)
+        self.FINDPLANEButton.clicked.connect(self.showPlanePanel)
+        self.FINDFLIGHTButton.clicked.connect(self.showFlightPanel)
+        self.NOTFOUNDEDButton.clicked.connect(self.closePopup)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -694,6 +701,36 @@ class Ui_MainWindow(object):
         except:
             pass
 
+    def showLoginWidget(self):
+        self.LOGINWidget = QtWidgets.QWidget()
+        self.ui = Ui_LOGINWidget()
+        self.ui.setupUi(self.LOGINWidget)
+        self.LOGINWidget.show()
+
+    def showAdminPanel(self):
+        self.ADMINPanel = QtWidgets.QWidget()
+        self.ui = Ui_ADMINPanel()
+        self.ui.setupUi(self.ADMINPanel)
+        self.ADMINPanel.show()
+
+    def showPlanePanel(self):
+        try:
+            self.db = TicketAir.DataBase()
+            plane = self.db.getPlane(str(self.ENTERPLANECODELabel.text()))
+            self.SEARCHPLANEPanel = QtWidgets.QWidget()
+            self.ui = Ui_SEARCHPLANEPanel()
+            self.ui.setupUi(self.SEARCHPLANEPanel)
+            self.SEARCHPLANEPanel.show()
+            self.ui.setPlane(plane)
+        except:
+            self.NOTFOUNDEDFrame.show()
+            self.NOTFOUNDEDLabel.setText('There is no plane with that tail number.')
+
+    def showFlightPanel(self):
+        pass
+
+    def closePopup(self):
+        self.NOTFOUNDEDFrame.hide()
 
 import file
 

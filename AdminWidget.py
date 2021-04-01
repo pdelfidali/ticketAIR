@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from TicketAir import DataBase, Flight, Plane
 
 
 class Ui_ADMINPanel(object):
@@ -34,7 +35,7 @@ class Ui_ADMINPanel(object):
         self.ERRORFrame = QtWidgets.QFrame(self.top)
         self.ERRORFrame.setMaximumSize(QtCore.QSize(450, 35))
         self.ERRORFrame.setStyleSheet("background-color: rgb(170, 255, 127);\n"
-"border-radius: 5px;")
+                                      "border-radius: 5px;")
         self.ERRORFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.ERRORFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.ERRORFrame.setObjectName("ERRORFrame")
@@ -53,20 +54,20 @@ class Ui_ADMINPanel(object):
         self.ERRORXButton = QtWidgets.QPushButton(self.ERRORFrame)
         self.ERRORXButton.setMaximumSize(QtCore.QSize(15, 15))
         self.ERRORXButton.setStyleSheet("QPushButton {\n"
-"    border-raadius: 5px;\n"
-"    background-position: centre;\n"
-"    border: 2px solid;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(50, 50, 50);\n"
-"    color: rgb(255, 234, 70);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 234, 70);\n"
-"}")
+                                        "    border-raadius: 5px;\n"
+                                        "    background-position: centre;\n"
+                                        "    border: 2px solid;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: rgb(50, 50, 50);\n"
+                                        "    color: rgb(255, 234, 70);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:pressed {\n"
+                                        "    background-color: rgb(35, 35, 35);\n"
+                                        "    color: rgb(255, 234, 70);\n"
+                                        "}")
         self.ERRORXButton.setObjectName("ERRORXButton")
         self.horizontalLayout_3.addWidget(self.ERRORXButton)
         self.horizontalLayout_2.addWidget(self.ERRORFrame)
@@ -81,7 +82,7 @@ class Ui_ADMINPanel(object):
         self.main = QtWidgets.QFrame(self.content)
         self.main.setMaximumSize(QtCore.QSize(1300, 700))
         self.main.setStyleSheet("background-color: rgb(35, 31, 32);\n"
-"border-radius: 10px;")
+                                "border-radius: 10px;")
         self.main.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.main.setFrameShadow(QtWidgets.QFrame.Raised)
         self.main.setObjectName("main")
@@ -110,22 +111,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.FROMAddLabel.setFont(font)
         self.FROMAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(170, 255, 255);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                        "    border: 2px solid rgb(45,45,45);\n"
+                                        "    border-radius: 8px;    \n"
+                                        "    padding: 15 px;\n"
+                                        "    background-color: rgb(30,30,30);\n"
+                                        "    color: rgb(100, 100, 100);\n"
+                                        "    color: rgb(255, 255, 255);    \n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:hover {\n"
+                                        "    border: 2px solid rgb(55,55,55);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:focus {\n"
+                                        "    border: 2px solid  rgb(170, 255, 255);\n"
+                                        "    color: rgb(200,200,200);\n"
+                                        "}")
         self.FROMAddLabel.setText("")
         self.FROMAddLabel.setMaxLength(100)
         self.FROMAddLabel.setObjectName("FROMAddLabel")
@@ -135,22 +136,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.TOAddLabel.setFont(font)
         self.TOAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(170, 255, 255);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                      "    border: 2px solid rgb(45,45,45);\n"
+                                      "    border-radius: 8px;    \n"
+                                      "    padding: 15 px;\n"
+                                      "    background-color: rgb(30,30,30);\n"
+                                      "    color: rgb(100, 100, 100);\n"
+                                      "    color: rgb(255, 255, 255);    \n"
+                                      "}\n"
+                                      "\n"
+                                      "QLineEdit:hover {\n"
+                                      "    border: 2px solid rgb(55,55,55);\n"
+                                      "}\n"
+                                      "\n"
+                                      "QLineEdit:focus {\n"
+                                      "    border: 2px solid  rgb(170, 255, 255);\n"
+                                      "    color: rgb(200,200,200);\n"
+                                      "}")
         self.TOAddLabel.setText("")
         self.TOAddLabel.setMaxLength(100)
         self.TOAddLabel.setObjectName("TOAddLabel")
@@ -160,22 +161,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.DATEAddLabel.setFont(font)
         self.DATEAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(170, 255, 255);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                        "    border: 2px solid rgb(45,45,45);\n"
+                                        "    border-radius: 8px;    \n"
+                                        "    padding: 15 px;\n"
+                                        "    background-color: rgb(30,30,30);\n"
+                                        "    color: rgb(100, 100, 100);\n"
+                                        "    color: rgb(255, 255, 255);    \n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:hover {\n"
+                                        "    border: 2px solid rgb(55,55,55);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:focus {\n"
+                                        "    border: 2px solid  rgb(170, 255, 255);\n"
+                                        "    color: rgb(200,200,200);\n"
+                                        "}")
         self.DATEAddLabel.setText("")
         self.DATEAddLabel.setMaxLength(100)
         self.DATEAddLabel.setObjectName("DATEAddLabel")
@@ -185,22 +186,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.TIMEAddLabel.setFont(font)
         self.TIMEAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(170, 255, 255);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                        "    border: 2px solid rgb(45,45,45);\n"
+                                        "    border-radius: 8px;    \n"
+                                        "    padding: 15 px;\n"
+                                        "    background-color: rgb(30,30,30);\n"
+                                        "    color: rgb(100, 100, 100);\n"
+                                        "    color: rgb(255, 255, 255);    \n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:hover {\n"
+                                        "    border: 2px solid rgb(55,55,55);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:focus {\n"
+                                        "    border: 2px solid  rgb(170, 255, 255);\n"
+                                        "    color: rgb(200,200,200);\n"
+                                        "}")
         self.TIMEAddLabel.setText("")
         self.TIMEAddLabel.setMaxLength(100)
         self.TIMEAddLabel.setObjectName("TIMEAddLabel")
@@ -210,22 +211,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.FLIGHTNUMBERAddLabel.setFont(font)
         self.FLIGHTNUMBERAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(170, 255, 255);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                                "    border: 2px solid rgb(45,45,45);\n"
+                                                "    border-radius: 8px;    \n"
+                                                "    padding: 15 px;\n"
+                                                "    background-color: rgb(30,30,30);\n"
+                                                "    color: rgb(100, 100, 100);\n"
+                                                "    color: rgb(255, 255, 255);    \n"
+                                                "}\n"
+                                                "\n"
+                                                "QLineEdit:hover {\n"
+                                                "    border: 2px solid rgb(55,55,55);\n"
+                                                "}\n"
+                                                "\n"
+                                                "QLineEdit:focus {\n"
+                                                "    border: 2px solid  rgb(170, 255, 255);\n"
+                                                "    color: rgb(200,200,200);\n"
+                                                "}")
         self.FLIGHTNUMBERAddLabel.setText("")
         self.FLIGHTNUMBERAddLabel.setMaxLength(100)
         self.FLIGHTNUMBERAddLabel.setObjectName("FLIGHTNUMBERAddLabel")
@@ -235,22 +236,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.PLANENUMBERAddFlightLabel.setFont(font)
         self.PLANENUMBERAddFlightLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(170, 255, 255);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                                     "    border: 2px solid rgb(45,45,45);\n"
+                                                     "    border-radius: 8px;    \n"
+                                                     "    padding: 15 px;\n"
+                                                     "    background-color: rgb(30,30,30);\n"
+                                                     "    color: rgb(100, 100, 100);\n"
+                                                     "    color: rgb(255, 255, 255);    \n"
+                                                     "}\n"
+                                                     "\n"
+                                                     "QLineEdit:hover {\n"
+                                                     "    border: 2px solid rgb(55,55,55);\n"
+                                                     "}\n"
+                                                     "\n"
+                                                     "QLineEdit:focus {\n"
+                                                     "    border: 2px solid  rgb(170, 255, 255);\n"
+                                                     "    color: rgb(200,200,200);\n"
+                                                     "}")
         self.PLANENUMBERAddFlightLabel.setText("")
         self.PLANENUMBERAddFlightLabel.setMaxLength(100)
         self.PLANENUMBERAddFlightLabel.setObjectName("PLANENUMBERAddFlightLabel")
@@ -260,22 +261,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.PRICEAddLabel.setFont(font)
         self.PRICEAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(170, 255, 255);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                         "    border: 2px solid rgb(45,45,45);\n"
+                                         "    border-radius: 8px;    \n"
+                                         "    padding: 15 px;\n"
+                                         "    background-color: rgb(30,30,30);\n"
+                                         "    color: rgb(100, 100, 100);\n"
+                                         "    color: rgb(255, 255, 255);    \n"
+                                         "}\n"
+                                         "\n"
+                                         "QLineEdit:hover {\n"
+                                         "    border: 2px solid rgb(55,55,55);\n"
+                                         "}\n"
+                                         "\n"
+                                         "QLineEdit:focus {\n"
+                                         "    border: 2px solid  rgb(170, 255, 255);\n"
+                                         "    color: rgb(200,200,200);\n"
+                                         "}")
         self.PRICEAddLabel.setText("")
         self.PRICEAddLabel.setMaxLength(100)
         self.PRICEAddLabel.setObjectName("PRICEAddLabel")
@@ -287,24 +288,24 @@ class Ui_ADMINPanel(object):
         font.setWeight(75)
         self.ADDFLIGHTButton.setFont(font)
         self.ADDFLIGHTButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(170, 255, 255);\n"
-"    border: 2px solid rgb(60,60,60);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color:  rgb(170, 255, 255);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    \n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                           "    background-color: rgb(170, 255, 255);\n"
+                                           "    border: 2px solid rgb(60,60,60);\n"
+                                           "    border-radius: 10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: rgb(60, 60, 60);\n"
+                                           "    border: 2px solid rgb(70,70,70);\n"
+                                           "    border-radius: 10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:pressed {\n"
+                                           "    background-color:  rgb(170, 255, 255);\n"
+                                           "    border: 2px solid rgb(0,0,0);\n"
+                                           "    border-radius: 10px;\n"
+                                           "    \n"
+                                           "    color: rgb(35, 35, 35);\n"
+                                           "}")
         self.ADDFLIGHTButton.setObjectName("ADDFLIGHTButton")
         self.FLIGHTNUMBERDeleteLabel = QtWidgets.QLineEdit(self.main)
         self.FLIGHTNUMBERDeleteLabel.setGeometry(QtCore.QRect(40, 390, 141, 51))
@@ -312,22 +313,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.FLIGHTNUMBERDeleteLabel.setFont(font)
         self.FLIGHTNUMBERDeleteLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(17, 217, 217);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                                   "    border: 2px solid rgb(45,45,45);\n"
+                                                   "    border-radius: 8px;    \n"
+                                                   "    padding: 15 px;\n"
+                                                   "    background-color: rgb(30,30,30);\n"
+                                                   "    color: rgb(100, 100, 100);\n"
+                                                   "    color: rgb(255, 255, 255);    \n"
+                                                   "}\n"
+                                                   "\n"
+                                                   "QLineEdit:hover {\n"
+                                                   "    border: 2px solid rgb(55,55,55);\n"
+                                                   "}\n"
+                                                   "\n"
+                                                   "QLineEdit:focus {\n"
+                                                   "    border: 2px solid rgb(17, 217, 217);\n"
+                                                   "    color: rgb(200,200,200);\n"
+                                                   "}")
         self.FLIGHTNUMBERDeleteLabel.setText("")
         self.FLIGHTNUMBERDeleteLabel.setMaxLength(100)
         self.FLIGHTNUMBERDeleteLabel.setObjectName("FLIGHTNUMBERDeleteLabel")
@@ -339,24 +340,24 @@ class Ui_ADMINPanel(object):
         font.setWeight(75)
         self.DELETEFLIGHTButton.setFont(font)
         self.DELETEFLIGHTButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(17, 217, 217);\n"
-"    border: 2px solid rgb(60,60,60);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color:rgb(17, 217, 217);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    \n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                              "    background-color: rgb(17, 217, 217);\n"
+                                              "    border: 2px solid rgb(60,60,60);\n"
+                                              "    border-radius: 10px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QPushButton:hover {\n"
+                                              "    background-color: rgb(60, 60, 60);\n"
+                                              "    border: 2px solid rgb(70,70,70);\n"
+                                              "    border-radius: 10px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QPushButton:pressed {\n"
+                                              "    background-color:rgb(17, 217, 217);\n"
+                                              "    border: 2px solid rgb(0,0,0);\n"
+                                              "    border-radius: 10px;\n"
+                                              "    \n"
+                                              "    color: rgb(35, 35, 35);\n"
+                                              "}")
         self.DELETEFLIGHTButton.setObjectName("DELETEFLIGHTButton")
         self.PLANE = QtWidgets.QLabel(self.main)
         self.PLANE.setGeometry(QtCore.QRect(50, 460, 111, 41))
@@ -377,23 +378,23 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.PLANENUMBERAddPlaneLabel.setFont(font)
         self.PLANENUMBERAddPlaneLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(0, 146, 208);\n"
-"    color: rgb(200,200,200);\n"
-"}\n"
-"")
+                                                    "    border: 2px solid rgb(45,45,45);\n"
+                                                    "    border-radius: 8px;    \n"
+                                                    "    padding: 15 px;\n"
+                                                    "    background-color: rgb(30,30,30);\n"
+                                                    "    color: rgb(100, 100, 100);\n"
+                                                    "    color: rgb(255, 255, 255);    \n"
+                                                    "}\n"
+                                                    "\n"
+                                                    "QLineEdit:hover {\n"
+                                                    "    border: 2px solid rgb(55,55,55);\n"
+                                                    "}\n"
+                                                    "\n"
+                                                    "QLineEdit:focus {\n"
+                                                    "    border: 2px solid rgb(0, 146, 208);\n"
+                                                    "    color: rgb(200,200,200);\n"
+                                                    "}\n"
+                                                    "")
         self.PLANENUMBERAddPlaneLabel.setText("")
         self.PLANENUMBERAddPlaneLabel.setMaxLength(100)
         self.PLANENUMBERAddPlaneLabel.setObjectName("PLANENUMBERAddPlaneLabel")
@@ -403,22 +404,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.YEAROFPRDAddLabel.setFont(font)
         self.YEAROFPRDAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(0, 146, 208);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                             "    border: 2px solid rgb(45,45,45);\n"
+                                             "    border-radius: 8px;    \n"
+                                             "    padding: 15 px;\n"
+                                             "    background-color: rgb(30,30,30);\n"
+                                             "    color: rgb(100, 100, 100);\n"
+                                             "    color: rgb(255, 255, 255);    \n"
+                                             "}\n"
+                                             "\n"
+                                             "QLineEdit:hover {\n"
+                                             "    border: 2px solid rgb(55,55,55);\n"
+                                             "}\n"
+                                             "\n"
+                                             "QLineEdit:focus {\n"
+                                             "    border: 2px solid rgb(0, 146, 208);\n"
+                                             "    color: rgb(200,200,200);\n"
+                                             "}")
         self.YEAROFPRDAddLabel.setText("")
         self.YEAROFPRDAddLabel.setMaxLength(100)
         self.YEAROFPRDAddLabel.setObjectName("YEAROFPRDAddLabel")
@@ -428,22 +429,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.FLIGHTSMILESAddLabel.setFont(font)
         self.FLIGHTSMILESAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(0, 146, 208);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                                "    border: 2px solid rgb(45,45,45);\n"
+                                                "    border-radius: 8px;    \n"
+                                                "    padding: 15 px;\n"
+                                                "    background-color: rgb(30,30,30);\n"
+                                                "    color: rgb(100, 100, 100);\n"
+                                                "    color: rgb(255, 255, 255);    \n"
+                                                "}\n"
+                                                "\n"
+                                                "QLineEdit:hover {\n"
+                                                "    border: 2px solid rgb(55,55,55);\n"
+                                                "}\n"
+                                                "\n"
+                                                "QLineEdit:focus {\n"
+                                                "    border: 2px solid rgb(0, 146, 208);\n"
+                                                "    color: rgb(200,200,200);\n"
+                                                "}")
         self.FLIGHTSMILESAddLabel.setText("")
         self.FLIGHTSMILESAddLabel.setMaxLength(100)
         self.FLIGHTSMILESAddLabel.setObjectName("FLIGHTSMILESAddLabel")
@@ -453,22 +454,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.CAPACITYAddLabel.setFont(font)
         self.CAPACITYAddLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(0, 146, 208);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                            "    border: 2px solid rgb(45,45,45);\n"
+                                            "    border-radius: 8px;    \n"
+                                            "    padding: 15 px;\n"
+                                            "    background-color: rgb(30,30,30);\n"
+                                            "    color: rgb(100, 100, 100);\n"
+                                            "    color: rgb(255, 255, 255);    \n"
+                                            "}\n"
+                                            "\n"
+                                            "QLineEdit:hover {\n"
+                                            "    border: 2px solid rgb(55,55,55);\n"
+                                            "}\n"
+                                            "\n"
+                                            "QLineEdit:focus {\n"
+                                            "    border: 2px solid rgb(0, 146, 208);\n"
+                                            "    color: rgb(200,200,200);\n"
+                                            "}")
         self.CAPACITYAddLabel.setText("")
         self.CAPACITYAddLabel.setMaxLength(100)
         self.CAPACITYAddLabel.setObjectName("CAPACITYAddLabel")
@@ -480,25 +481,25 @@ class Ui_ADMINPanel(object):
         font.setWeight(75)
         self.ADDPLANEButton.setFont(font)
         self.ADDPLANEButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(0, 146, 208);\n"
-"    border: 2px solid rgb(60,60,60);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(0, 146, 208);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    \n"
-"    color: rgb(35, 35, 35);\n"
-"}\n"
-"")
+                                          "    background-color: rgb(0, 146, 208);\n"
+                                          "    border: 2px solid rgb(60,60,60);\n"
+                                          "    border-radius: 10px;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "    background-color: rgb(60, 60, 60);\n"
+                                          "    border: 2px solid rgb(70,70,70);\n"
+                                          "    border-radius: 10px;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:pressed {\n"
+                                          "    background-color: rgb(0, 146, 208);\n"
+                                          "    border: 2px solid rgb(0,0,0);\n"
+                                          "    border-radius: 10px;\n"
+                                          "    \n"
+                                          "    color: rgb(35, 35, 35);\n"
+                                          "}\n"
+                                          "")
         self.ADDPLANEButton.setObjectName("ADDPLANEButton")
         self.PLANENUMBERDeleteLabel = QtWidgets.QLineEdit(self.main)
         self.PLANENUMBERDeleteLabel.setGeometry(QtCore.QRect(40, 590, 141, 51))
@@ -506,22 +507,22 @@ class Ui_ADMINPanel(object):
         font.setPointSize(9)
         self.PLANENUMBERDeleteLabel.setFont(font)
         self.PLANENUMBERDeleteLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 8px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(100, 100, 100);\n"
-"    color: rgb(255, 255, 255);    \n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(12, 143, 143);\n"
-"    color: rgb(200,200,200);\n"
-"}")
+                                                  "    border: 2px solid rgb(45,45,45);\n"
+                                                  "    border-radius: 8px;    \n"
+                                                  "    padding: 15 px;\n"
+                                                  "    background-color: rgb(30,30,30);\n"
+                                                  "    color: rgb(100, 100, 100);\n"
+                                                  "    color: rgb(255, 255, 255);    \n"
+                                                  "}\n"
+                                                  "\n"
+                                                  "QLineEdit:hover {\n"
+                                                  "    border: 2px solid rgb(55,55,55);\n"
+                                                  "}\n"
+                                                  "\n"
+                                                  "QLineEdit:focus {\n"
+                                                  "    border: 2px solid rgb(12, 143, 143);\n"
+                                                  "    color: rgb(200,200,200);\n"
+                                                  "}")
         self.PLANENUMBERDeleteLabel.setText("")
         self.PLANENUMBERDeleteLabel.setMaxLength(100)
         self.PLANENUMBERDeleteLabel.setObjectName("PLANENUMBERDeleteLabel")
@@ -533,25 +534,25 @@ class Ui_ADMINPanel(object):
         font.setWeight(75)
         self.DELETEPLANEButton.setFont(font)
         self.DELETEPLANEButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(12, 143, 143);\n"
-"    border: 2px solid rgb(60,60,60);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(12, 143, 143);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    \n"
-"    color: rgb(35, 35, 35);\n"
-"}\n"
-"")
+                                             "    background-color: rgb(12, 143, 143);\n"
+                                             "    border: 2px solid rgb(60,60,60);\n"
+                                             "    border-radius: 10px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QPushButton:hover {\n"
+                                             "    background-color: rgb(60, 60, 60);\n"
+                                             "    border: 2px solid rgb(70,70,70);\n"
+                                             "    border-radius: 10px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QPushButton:pressed {\n"
+                                             "    background-color: rgb(12, 143, 143);\n"
+                                             "    border: 2px solid rgb(0,0,0);\n"
+                                             "    border-radius: 10px;\n"
+                                             "    \n"
+                                             "    color: rgb(35, 35, 35);\n"
+                                             "}\n"
+                                             "")
         self.DELETEPLANEButton.setObjectName("DELETEPLANEButton")
         self.SETTINGSIcon = QtWidgets.QFrame(self.main)
         self.SETTINGSIcon.setGeometry(QtCore.QRect(980, 390, 291, 291))
@@ -572,6 +573,11 @@ class Ui_ADMINPanel(object):
 
         self.retranslateUi(ADMINPanel)
         QtCore.QMetaObject.connectSlotsByName(ADMINPanel)
+        self.DELETEFLIGHTButton.clicked.connect(self.deleteFlight)
+        self.DELETEPLANEButton.clicked.connect(self.deletePlane)
+        self.ADDFLIGHTButton.clicked.connect(self.addFlight)
+        self.ADDPLANEButton.clicked.connect(self.addPlane)
+        self.ERRORXButton.clicked.connect(self.closeError)
 
     def retranslateUi(self, ADMINPanel):
         _translate = QtCore.QCoreApplication.translate
@@ -579,7 +585,8 @@ class Ui_ADMINPanel(object):
         self.ERRORLabel.setText(_translate("ADMINPanel", "ERROR"))
         self.ERRORXButton.setText(_translate("ADMINPanel", "X"))
         self.FLIGHT.setText(_translate("ADMINPanel", "FLIGHT"))
-        self.Line1.setText(_translate("ADMINPanel", "_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"))
+        self.Line1.setText(_translate("ADMINPanel",
+                                      "_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"))
         self.FROMAddLabel.setPlaceholderText(_translate("ADMINPanel", "FROM"))
         self.TOAddLabel.setPlaceholderText(_translate("ADMINPanel", "TO"))
         self.DATEAddLabel.setPlaceholderText(_translate("ADMINPanel", "DATE"))
@@ -591,7 +598,8 @@ class Ui_ADMINPanel(object):
         self.FLIGHTNUMBERDeleteLabel.setPlaceholderText(_translate("ADMINPanel", "FLIGHT NUMBER"))
         self.DELETEFLIGHTButton.setText(_translate("ADMINPanel", "DELETE FLIGHT"))
         self.PLANE.setText(_translate("ADMINPanel", "PLANE"))
-        self.Line2.setText(_translate("ADMINPanel", "____________________________________________________________________________________________________________________________________"))
+        self.Line2.setText(_translate("ADMINPanel",
+                                      "____________________________________________________________________________________________________________________________________"))
         self.PLANENUMBERAddPlaneLabel.setPlaceholderText(_translate("ADMINPanel", "PLANE NUMBER"))
         self.YEAROFPRDAddLabel.setPlaceholderText(_translate("ADMINPanel", "YEAR OF PRODUCTION"))
         self.FLIGHTSMILESAddLabel.setPlaceholderText(_translate("ADMINPanel", "FLIGHTS MILES"))
@@ -599,11 +607,61 @@ class Ui_ADMINPanel(object):
         self.ADDPLANEButton.setText(_translate("ADMINPanel", "ADD PLANE"))
         self.PLANENUMBERDeleteLabel.setPlaceholderText(_translate("ADMINPanel", "PLANE NUMBER"))
         self.DELETEPLANEButton.setText(_translate("ADMINPanel", "DELETE PLANE"))
-import file
 
+    def deleteFlight(self):
+        try:
+            db = DataBase()
+            db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text()))
+            print('deleteFlight')
+        except:
+            self.ERRORFrame.show()
+            self.ERRORLabel('Could not delete this flight.')
+
+    def deletePlane(self):
+        try:
+            db = DataBase()
+            db.removePlane(str(self.PLANENUMBERDeleteLabel.text()))
+            print(str(self.PLANENUMBERDeleteLabel.text()))
+        except:
+            self.ERRORFrame.show()
+            self.ERRORLabel.setText('There is no plane with that tail number.')
+
+    def addFlight(self):
+        try:
+            self.db = DataBase()
+            print((self.FROMAddLabel.text()), (self.TOAddLabel.text()), (self.FLIGHTNUMBERAddLabel.text()),
+                       (self.PLANENUMBERAddFlightLabel.text()), (self.DATEAddLabel.text()),
+                       int(self.PRICEAddLabel.text()),
+                       float(self.TIMEAddLabel.text()))
+            flight = Flight((self.FROMAddLabel.text()), (self.TOAddLabel.text()), (self.FLIGHTNUMBERAddLabel.text()),
+                       str(self.PLANENUMBERAddFlightLabel.text()), (self.DATEAddLabel.text()),
+                       int(self.PRICEAddLabel.text()),
+                       float(self.TIMEAddLabel.text()))
+            print(flight)
+
+            self.db.addFlight(flight)
+        except :
+            print('Wrong')
+
+
+    def addPlane(self):
+        try:
+            db = DataBase()
+            db.addPlane(
+                Plane(self.YEAROFPRDAddLabel.text(), self.FLIGHTSMILESAddLabel.text(), self.CAPACITYAddLabel.text(),
+                      self.PLANENUMBERAddPlaneLabel.text()))
+        except:
+            pass
+
+    def closeError(self):
+        self.ERRORFrame.hide()
+
+
+import file
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     ADMINPanel = QtWidgets.QWidget()
     ui = Ui_ADMINPanel()

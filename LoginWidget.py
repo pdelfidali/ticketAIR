@@ -10,7 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_LOGINWidget(object):
     def setupUi(self, LOGINWidget):
         LOGINWidget.setObjectName("LOGINWidget")
