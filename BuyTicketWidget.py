@@ -289,6 +289,142 @@ class Ui_BUYTICKETPanel(object):
         self.Line.setFont(font)
         self.Line.setStyleSheet("color: rgb(0, 85, 127);")
         self.Line.setObjectName("Line")
+        self.TOTAL = QtWidgets.QLabel(self.main)
+        self.TOTAL.setGeometry(QtCore.QRect(490, 390, 51, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.TOTAL.setFont(font)
+        self.TOTAL.setStyleSheet("color: rgb(255, 255, 255);")
+        self.TOTAL.setObjectName("TOTAL")
+        self.TOTALPRICELabel = QtWidgets.QLabel(self.main)
+        self.TOTALPRICELabel.setGeometry(QtCore.QRect(550, 400, 31, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.TOTALPRICELabel.setFont(font)
+        self.TOTALPRICELabel.setStyleSheet("color: rgb(255, 85, 127);")
+        self.TOTALPRICELabel.setObjectName("TOTALPRICELabel")
+        self.PASSWORDLabel = QtWidgets.QFrame(self.main)
+        self.PASSWORDLabel.setGeometry(QtCore.QRect(660, 450, 750, 439))
+        self.PASSWORDLabel.setMaximumSize(QtCore.QSize(750, 550))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.PASSWORDLabel.setFont(font)
+        self.PASSWORDLabel.setStyleSheet("background-color: rgb(57, 57, 57);\n"
+"border-radius: 10px;")
+        self.PASSWORDLabel.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.PASSWORDLabel.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.PASSWORDLabel.setObjectName("PASSWORDLabel")
+        self.NUMBEROFPASSENGERSLabel = QtWidgets.QLineEdit(self.PASSWORDLabel)
+        self.NUMBEROFPASSENGERSLabel.setGeometry(QtCore.QRect(130, 350, 461, 45))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.NUMBEROFPASSENGERSLabel.setFont(font)
+        self.NUMBEROFPASSENGERSLabel.setStyleSheet("QLineEdit {\n"
+"    border: 2px solid rgb(45,45,45);\n"
+"    border-radius: 5px;    \n"
+"    padding: 15 px;\n"
+"    background-color: rgb(30,30,30);\n"
+"    \n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QLineEdit:hover {\n"
+"    border: 2px solid rgb(55,55,55);\n"
+"}\n"
+"\n"
+"QLineEdit:focus {\n"
+"    border: 2px solid rgb(255,255,127);\n"
+"    color: rgb(200,200,200)\n"
+"}")
+        self.NUMBEROFPASSENGERSLabel.setText("")
+        self.NUMBEROFPASSENGERSLabel.setMaxLength(100)
+        self.NUMBEROFPASSENGERSLabel.setObjectName("NUMBEROFPASSENGERSLabel")
+        self.HANGLUGGAGEBox = QtWidgets.QCheckBox(self.PASSWORDLabel)
+        self.HANGLUGGAGEBox.setGeometry(QtCore.QRect(280, 300, 21, 21))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.HANGLUGGAGEBox.setFont(font)
+        self.HANGLUGGAGEBox.setStyleSheet("QCheckBox::indicator {\n"
+"    border: 3px solid rgb(100,100,100);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(135, 135, 135);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked {\n"
+"    border: 3px solid rgb(255,255,0);\n"
+"    background-color: rgb(255, 255, 127);\n"
+"}")
+        self.HANGLUGGAGEBox.setText("")
+        self.HANGLUGGAGEBox.setObjectName("HANGLUGGAGEBox")
+        self.UNDER15KGBox = QtWidgets.QCheckBox(self.PASSWORDLabel)
+        self.UNDER15KGBox.setGeometry(QtCore.QRect(400, 300, 21, 21))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.UNDER15KGBox.setFont(font)
+        self.UNDER15KGBox.setStyleSheet("QCheckBox::indicator {\n"
+"    border: 3px solid rgb(100,100,100);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(135, 135, 135);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked {\n"
+"    border: 3px solid rgb(255,255,0);\n"
+"    background-color: rgb(255, 255, 127);\n"
+"}")
+        self.UNDER15KGBox.setText("")
+        self.UNDER15KGBox.setObjectName("UNDER15KGBox")
+        self.OVER15KGBox = QtWidgets.QCheckBox(self.PASSWORDLabel)
+        self.OVER15KGBox.setGeometry(QtCore.QRect(500, 300, 21, 21))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.OVER15KGBox.setFont(font)
+        self.OVER15KGBox.setStyleSheet("QCheckBox::indicator {\n"
+"    border: 3px solid rgb(100,100,100);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(135, 135, 135);\n"
+"}\n"
+"\n"
+"QCheckBox::indicator:checked {\n"
+"    border: 3px solid rgb(255,255,0);\n"
+"    background-color: rgb(255, 255, 127);\n"
+"}")
+        self.OVER15KGBox.setText("")
+        self.OVER15KGBox.setObjectName("OVER15KGBox")
+        self.LogoFrame = QtWidgets.QFrame(self.PASSWORDLabel)
+        self.LogoFrame.setGeometry(QtCore.QRect(260, 0, 191, 171))
+        self.LogoFrame.setStyleSheet("background-image: url(:/LOGO/img/logo.png);")
+        self.LogoFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.LogoFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.LogoFrame.setObjectName("LogoFrame")
+        self.TOTALPRICECURRENCYLabel = QtWidgets.QLabel(self.PASSWORDLabel)
+        self.TOTALPRICECURRENCYLabel.setGeometry(QtCore.QRect(580, 410, 21, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.TOTALPRICECURRENCYLabel.setFont(font)
+        self.TOTALPRICECURRENCYLabel.setStyleSheet("color: rgb(255, 85, 127);")
+        self.TOTALPRICECURRENCYLabel.setObjectName("TOTALPRICECURRENCYLabel")
+        self.CURRENCYLabel = QtWidgets.QLabel(self.main)
+        self.CURRENCYLabel.setGeometry(QtCore.QRect(600, 400, 20, 20))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.CURRENCYLabel.setFont(font)
+        self.CURRENCYLabel.setStyleSheet("color: rgb(255, 85, 127);")
+        self.CURRENCYLabel.setObjectName("CURRENCYLabel")
         self.horizontalLayout.addWidget(self.main)
         self.verticalLayout.addWidget(self.content)
         self.bottom = QtWidgets.QFrame(BUYTICKETPanel)
@@ -318,6 +454,11 @@ class Ui_BUYTICKETPanel(object):
         self.BUYButton.setText(_translate("BUYTICKETPanel", "BUY"))
         self.NUMBEROFPASSENGERS.setText(_translate("BUYTICKETPanel", "NUMBER OF PASSENGERS:"))
         self.Line.setText(_translate("BUYTICKETPanel", "____________________________________________________________________________________________"))
+        self.TOTAL.setText(_translate("BUYTICKETPanel", "TOTAL:"))
+        self.TOTALPRICELabel.setText(_translate("BUYTICKETPanel", "189 "))
+        self.NUMBEROFPASSENGERSLabel.setPlaceholderText(_translate("BUYTICKETPanel", "NUMBER OF PASSENGERS"))
+        self.TOTALPRICECURRENCYLabel.setText(_translate("BUYTICKETPanel", "€"))
+        self.CURRENCYLabel.setText(_translate("BUYTICKETPanel", "€"))
 import file
 
 

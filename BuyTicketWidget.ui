@@ -603,6 +603,288 @@ border-radius: 10px;</string>
           <string>____________________________________________________________________________________________</string>
          </property>
         </widget>
+        <widget class="QLabel" name="TOTAL">
+         <property name="geometry">
+          <rect>
+           <x>490</x>
+           <y>390</y>
+           <width>51</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>TOTAL:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="TOTALPRICELabel">
+         <property name="geometry">
+          <rect>
+           <x>550</x>
+           <y>400</y>
+           <width>31</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 85, 127);</string>
+         </property>
+         <property name="text">
+          <string>189 </string>
+         </property>
+        </widget>
+        <widget class="QFrame" name="PASSWORDLabel">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>450</y>
+           <width>750</width>
+           <height>439</height>
+          </rect>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>750</width>
+           <height>550</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(57, 57, 57);
+border-radius: 10px;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLineEdit" name="NUMBEROFPASSENGERSLabel">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>350</y>
+            <width>461</width>
+            <height>45</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	border: 2px solid rgb(45,45,45);
+	border-radius: 5px;	
+	padding: 15 px;
+	background-color: rgb(30,30,30);
+	
+	color: rgb(255, 255, 255);
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(55,55,55);
+}
+
+QLineEdit:focus {
+	border: 2px solid rgb(255,255,127);
+	color: rgb(200,200,200)
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>100</number>
+          </property>
+          <property name="placeholderText">
+           <string>NUMBER OF PASSENGERS</string>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="HANGLUGGAGEBox">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>300</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox::indicator {
+	border: 3px solid rgb(100,100,100);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	background-color: rgb(135, 135, 135);
+}
+
+QCheckBox::indicator:checked {
+	border: 3px solid rgb(255,255,0);
+	background-color: rgb(255, 255, 127);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="UNDER15KGBox">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>300</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox::indicator {
+	border: 3px solid rgb(100,100,100);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	background-color: rgb(135, 135, 135);
+}
+
+QCheckBox::indicator:checked {
+	border: 3px solid rgb(255,255,0);
+	background-color: rgb(255, 255, 127);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="OVER15KGBox">
+          <property name="geometry">
+           <rect>
+            <x>500</x>
+            <y>300</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox::indicator {
+	border: 3px solid rgb(100,100,100);
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	background-color: rgb(135, 135, 135);
+}
+
+QCheckBox::indicator:checked {
+	border: 3px solid rgb(255,255,0);
+	background-color: rgb(255, 255, 127);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QFrame" name="LogoFrame">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>0</y>
+            <width>191</width>
+            <height>171</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/LOGO/img/logo.png);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="TOTALPRICECURRENCYLabel">
+          <property name="geometry">
+           <rect>
+            <x>580</x>
+            <y>410</y>
+            <width>21</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 85, 127);</string>
+          </property>
+          <property name="text">
+           <string>€</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QLabel" name="CURRENCYLabel">
+         <property name="geometry">
+          <rect>
+           <x>600</x>
+           <y>400</y>
+           <width>20</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 85, 127);</string>
+         </property>
+         <property name="text">
+          <string>€</string>
+         </property>
+        </widget>
        </widget>
       </item>
      </layout>
