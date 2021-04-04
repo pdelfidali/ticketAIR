@@ -14,7 +14,9 @@ from LoginWidget import Ui_LOGINWidget
 from AdminWidget import Ui_ADMINPanel
 from SearchPlaneWidget import Ui_SEARCHPLANEPanel
 
+
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1752, 1051)
@@ -114,7 +116,7 @@ class Ui_MainWindow(object):
         self.frame_4.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.frame_4.setAutoFillBackground(False)
         self.frame_4.setStyleSheet("background-image: url(:/MainPage/img/login_homepage.png);\n"
-"background-repeat: no-repeat;")
+                                   "background-repeat: no-repeat;")
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
@@ -147,7 +149,7 @@ class Ui_MainWindow(object):
         self.Logo = QtWidgets.QFrame(self.left_menu)
         self.Logo.setGeometry(QtCore.QRect(20, -30, 181, 161))
         self.Logo.setStyleSheet("background-image: url(:/LogoImage/logo.png);\n"
-"background-repeat: no-repeat;")
+                                "background-repeat: no-repeat;")
         self.Logo.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.Logo.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Logo.setObjectName("Logo")
@@ -157,26 +159,26 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.FINDFLIGHTButton.setFont(font)
         self.FINDFLIGHTButton.setStyleSheet("QPushButton {\n"
-"    \n"
-"    \n"
-"    background-color: rgb(35, 35, 35);\n"
-"    border: 2px solid rgb(8, 148, 255);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(8, 148, 255);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(8, 148, 255);;\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                            "    \n"
+                                            "    \n"
+                                            "    background-color: rgb(35, 35, 35);\n"
+                                            "    border: 2px solid rgb(8, 148, 255);\n"
+                                            "    border-radius: 10px;\n"
+                                            "    color: rgb(8, 148, 255);\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover {\n"
+                                            "    background-color: rgb(60, 60, 60);\n"
+                                            "    border: 2px solid rgb(70,70,70);\n"
+                                            "    border-radius: 10px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:pressed {\n"
+                                            "    background-color: rgb(8, 148, 255);;\n"
+                                            "    border: 2px solid rgb(0,0,0);\n"
+                                            "    border-radius: 10px;\n"
+                                            "    color: rgb(35, 35, 35);\n"
+                                            "}")
         self.FINDFLIGHTButton.setObjectName("FINDFLIGHTButton")
         self.BUYTICKETButton = QtWidgets.QPushButton(self.left_menu)
         self.BUYTICKETButton.setGeometry(QtCore.QRect(20, 360, 201, 51))
@@ -185,26 +187,26 @@ class Ui_MainWindow(object):
         font.setPointSize(14)
         self.BUYTICKETButton.setFont(font)
         self.BUYTICKETButton.setStyleSheet("QPushButton {\n"
-"    \n"
-"    \n"
-"    background-color: rgb(35, 35, 35);\n"
-"    border: 2px solid rgb(255, 255, 127);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(255, 255, 127);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                           "    \n"
+                                           "    \n"
+                                           "    background-color: rgb(35, 35, 35);\n"
+                                           "    border: 2px solid rgb(255, 255, 127);\n"
+                                           "    border-radius: 10px;\n"
+                                           "    color: rgb(255, 255, 127);\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: rgb(60, 60, 60);\n"
+                                           "    border: 2px solid rgb(70,70,70);\n"
+                                           "    border-radius: 10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:pressed {\n"
+                                           "    background-color: rgb(255, 255, 127);\n"
+                                           "    border: 2px solid rgb(0,0,0);\n"
+                                           "    border-radius: 10px;\n"
+                                           "    color: rgb(35, 35, 35);\n"
+                                           "}")
         self.BUYTICKETButton.setObjectName("BUYTICKETButton")
         self.FINDPLANEButton = QtWidgets.QPushButton(self.left_menu)
         self.FINDPLANEButton.setGeometry(QtCore.QRect(20, 590, 211, 41))
@@ -212,25 +214,25 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.FINDPLANEButton.setFont(font)
         self.FINDPLANEButton.setStyleSheet("QPushButton {\n"
-"    \n"
-"    background-color: rgb(35, 35, 35);\n"
-"    border: 2px solid rgb(20, 255, 94);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(20, 255, 94);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(20, 255, 94);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                           "    \n"
+                                           "    background-color: rgb(35, 35, 35);\n"
+                                           "    border: 2px solid rgb(20, 255, 94);\n"
+                                           "    border-radius: 10px;\n"
+                                           "    color: rgb(20, 255, 94);\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: rgb(60, 60, 60);\n"
+                                           "    border: 2px solid rgb(70,70,70);\n"
+                                           "    border-radius: 10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:pressed {\n"
+                                           "    background-color: rgb(20, 255, 94);\n"
+                                           "    border: 2px solid rgb(0,0,0);\n"
+                                           "    border-radius: 10px;\n"
+                                           "    color: rgb(35, 35, 35);\n"
+                                           "}")
         self.FINDPLANEButton.setObjectName("FINDPLANEButton")
         self.ENTERFLIGHTCODELabel = QtWidgets.QLineEdit(self.left_menu)
         self.ENTERFLIGHTCODELabel.setGeometry(QtCore.QRect(9, 780, 221, 51))
@@ -238,21 +240,21 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.ENTERFLIGHTCODELabel.setFont(font)
         self.ENTERFLIGHTCODELabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(255, 255, 255);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                                "    border: 2px solid rgb(45,45,45);\n"
+                                                "    border-radius: 5px;    \n"
+                                                "    padding: 15 px;\n"
+                                                "    background-color: rgb(30,30,30);\n"
+                                                "    color: rgb(255, 255, 255);\n"
+                                                "}\n"
+                                                "\n"
+                                                "QLineEdit:hover {\n"
+                                                "    border: 2px solid rgb(55,55,55);\n"
+                                                "}\n"
+                                                "\n"
+                                                "QLineEdit:focus {\n"
+                                                "    border: 2px solid  rgb(255, 255, 255);\n"
+                                                "    color: rgb(200,200,200)\n"
+                                                "}")
         self.ENTERFLIGHTCODELabel.setText("")
         self.ENTERFLIGHTCODELabel.setMaxLength(100)
         self.ENTERFLIGHTCODELabel.setObjectName("ENTERFLIGHTCODELabel")
@@ -262,21 +264,21 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.ENTERPLANECODELabel.setFont(font)
         self.ENTERPLANECODELabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid  rgb(255, 255, 255);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                               "    border: 2px solid rgb(45,45,45);\n"
+                                               "    border-radius: 5px;    \n"
+                                               "    padding: 15 px;\n"
+                                               "    background-color: rgb(30,30,30);\n"
+                                               "    color: rgb(255, 255, 255);\n"
+                                               "}\n"
+                                               "\n"
+                                               "QLineEdit:hover {\n"
+                                               "    border: 2px solid rgb(55,55,55);\n"
+                                               "}\n"
+                                               "\n"
+                                               "QLineEdit:focus {\n"
+                                               "    border: 2px solid  rgb(255, 255, 255);\n"
+                                               "    color: rgb(200,200,200)\n"
+                                               "}")
         self.ENTERPLANECODELabel.setText("")
         self.ENTERPLANECODELabel.setMaxLength(100)
         self.ENTERPLANECODELabel.setObjectName("ENTERPLANECODELabel")
@@ -289,7 +291,7 @@ class Ui_MainWindow(object):
         self.TimetableIcon = QtWidgets.QFrame(self.left_menu)
         self.TimetableIcon.setGeometry(QtCore.QRect(80, 670, 101, 111))
         self.TimetableIcon.setStyleSheet("background-image: url(:/LogoImage/img/resize_timetable.png);\n"
-"background-repeat: no-repeat;")
+                                         "background-repeat: no-repeat;")
         self.TimetableIcon.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.TimetableIcon.setFrameShadow(QtWidgets.QFrame.Raised)
         self.TimetableIcon.setObjectName("TimetableIcon")
@@ -305,25 +307,25 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.AMINPANELButton.setFont(font)
         self.AMINPANELButton.setStyleSheet("QPushButton {\n"
-"    \n"
-"    background-color: rgb(35, 35, 35);\n"
-"    border: 2px solid rgb(36, 2, 122);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(36, 2, 122);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    color: rgb(255, 255, 255);\n"
-"}")
+                                           "    \n"
+                                           "    background-color: rgb(35, 35, 35);\n"
+                                           "    border: 2px solid rgb(36, 2, 122);\n"
+                                           "    border-radius: 10px;\n"
+                                           "    color: rgb(255, 255, 255);\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: rgb(60, 60, 60);\n"
+                                           "    border: 2px solid rgb(70,70,70);\n"
+                                           "    border-radius: 10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:pressed {\n"
+                                           "    background-color: rgb(36, 2, 122);\n"
+                                           "    border: 2px solid rgb(0,0,0);\n"
+                                           "    border-radius: 10px;\n"
+                                           "    color: rgb(255, 255, 255);\n"
+                                           "}")
         self.AMINPANELButton.setObjectName("AMINPANELButton")
         self.horizontalLayout.addWidget(self.left_menu)
         self.content_right = QtWidgets.QFrame(self.content)
@@ -334,24 +336,24 @@ class Ui_MainWindow(object):
         self.LOGINButton = QtWidgets.QPushButton(self.content_right)
         self.LOGINButton.setGeometry(QtCore.QRect(1400, 20, 81, 31))
         self.LOGINButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(60,60,60);\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 5px;\n"
-"    \n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                       "    background-color: rgb(255, 255, 127);\n"
+                                       "    border: 2px solid rgb(60,60,60);\n"
+                                       "    border-radius: 5px;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "    background-color: rgb(60, 60, 60);\n"
+                                       "    border: 2px solid rgb(70,70,70);\n"
+                                       "    border-radius: 5px;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:pressed {\n"
+                                       "    background-color: rgb(255, 255, 127);\n"
+                                       "    border: 2px solid rgb(0,0,0);\n"
+                                       "    border-radius: 5px;\n"
+                                       "    \n"
+                                       "    color: rgb(35, 35, 35);\n"
+                                       "}")
         self.LOGINButton.setObjectName("LOGINButton")
         self.SEARCHFLIGHTButton = QtWidgets.QPushButton(self.content_right)
         self.SEARCHFLIGHTButton.setGeometry(QtCore.QRect(1260, 440, 191, 51))
@@ -359,34 +361,34 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.SEARCHFLIGHTButton.setFont(font)
         self.SEARCHFLIGHTButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(60,60,60);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 10px;\n"
-"    \n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                              "    background-color: rgb(255, 255, 127);\n"
+                                              "    border: 2px solid rgb(60,60,60);\n"
+                                              "    border-radius: 10px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QPushButton:hover {\n"
+                                              "    background-color: rgb(60, 60, 60);\n"
+                                              "    border: 2px solid rgb(70,70,70);\n"
+                                              "    border-radius: 10px;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QPushButton:pressed {\n"
+                                              "    background-color: rgb(255, 255, 127);\n"
+                                              "    border: 2px solid rgb(0,0,0);\n"
+                                              "    border-radius: 10px;\n"
+                                              "    \n"
+                                              "    color: rgb(35, 35, 35);\n"
+                                              "}")
         self.SEARCHFLIGHTButton.setObjectName("SEARCHFLIGHTButton")
         self.FROMComboBox = QtWidgets.QComboBox(self.content_right)
         self.FROMComboBox.setGeometry(QtCore.QRect(310, 450, 371, 41))
         self.FROMComboBox.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 10px;")
+                                        "border-radius: 10px;")
         self.FROMComboBox.setObjectName("FROMComboBox")
         self.TOComboBox = QtWidgets.QComboBox(self.content_right)
         self.TOComboBox.setGeometry(QtCore.QRect(790, 450, 371, 41))
         self.TOComboBox.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 10px;")
+                                      "border-radius: 10px;")
         self.TOComboBox.setObjectName("TOComboBox")
         self.label = QtWidgets.QLabel(self.content_right)
         self.label.setGeometry(QtCore.QRect(310, 430, 61, 16))
@@ -408,7 +410,7 @@ class Ui_MainWindow(object):
         self.NOTFOUNDEDFrame.setGeometry(QtCore.QRect(700, 550, 450, 31))
         self.NOTFOUNDEDFrame.setMaximumSize(QtCore.QSize(450, 16777215))
         self.NOTFOUNDEDFrame.setStyleSheet("background-color: rgb(170, 255, 127);\n"
-"border-radius: 5px;")
+                                           "border-radius: 5px;")
         self.NOTFOUNDEDFrame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.NOTFOUNDEDFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.NOTFOUNDEDFrame.setObjectName("NOTFOUNDEDFrame")
@@ -426,20 +428,20 @@ class Ui_MainWindow(object):
         self.NOTFOUNDEDButton = QtWidgets.QPushButton(self.NOTFOUNDEDFrame)
         self.NOTFOUNDEDButton.setMaximumSize(QtCore.QSize(20, 20))
         self.NOTFOUNDEDButton.setStyleSheet("QPushButton {\n"
-"    border-raadius: 5px;\n"
-"    background-position: centre;\n"
-"    border: 2px solid;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(50, 50, 50);\n"
-"    color: rgb(255, 234, 70);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 234, 70);\n"
-"}")
+                                            "    border-raadius: 5px;\n"
+                                            "    background-position: centre;\n"
+                                            "    border: 2px solid;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover {\n"
+                                            "    background-color: rgb(50, 50, 50);\n"
+                                            "    color: rgb(255, 234, 70);\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:pressed {\n"
+                                            "    background-color: rgb(35, 35, 35);\n"
+                                            "    color: rgb(255, 234, 70);\n"
+                                            "}")
         self.NOTFOUNDEDButton.setObjectName("NOTFOUNDEDButton")
         self.horizontalLayout_4.addWidget(self.NOTFOUNDEDButton)
         self.label_5 = QtWidgets.QLabel(self.content_right)
@@ -703,7 +705,7 @@ class Ui_MainWindow(object):
 
     def showLoginWidget(self):
         self.LOGINWidget = QtWidgets.QWidget()
-        self.ui = Ui_LOGINWidget()
+        self.ui = Ui_LOGINWidget(self)
         self.ui.setupUi(self.LOGINWidget)
         self.LOGINWidget.show()
 
@@ -732,11 +734,20 @@ class Ui_MainWindow(object):
     def closePopup(self):
         self.NOTFOUNDEDFrame.hide()
 
-import file
+    def setUser(self, user):
+        self.currentUser = user
+        self.USERNAMELabel.setText(user.name)
+        if type(self.currentUser) == TicketAir.Admin:
+            self.AMINPANELButton.show()
+        else:
+            self.AMINPANELButton.hide()
 
+
+import file
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

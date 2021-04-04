@@ -1,4 +1,8 @@
 import sqlite3
+import HomePage
+import sys
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Flight:
     def __init__(self):
@@ -66,7 +70,7 @@ class Passenger:
         self.password = None
         self.login = None
 
-    def __int__(self, name, tickets, address, password, login):
+    def __init__(self, name, tickets, address, password, login):
         self.name = name
         self.tickets = tickets
         self.address = address
@@ -81,6 +85,13 @@ class Passenger:
 class Admin (Passenger):
         def __init__(self):
             super().__init__()
+
+        def __init__(self, name, tickets, address, password, login):
+            self.name = name
+            self.tickets = tickets
+            self.address = address
+            self.password = password
+            self.login = login
 
         def addFlight(self, flight):
             flight.add(self)
@@ -188,7 +199,10 @@ class DataBase:
         userID, name, ticketsIDs, isAdmin, passwordData, loginData = cur.fetchone()
         con.close()
         if passwordData == password:
-            return Passenger(name, ticketsIDs, "", password, loginData)
+            if isAdmin == 0:
+                return Passenger(name, ticketsIDs, "", password, loginData)
+            else:
+                return Admin(name, ticketsIDs, "", password, loginData)
         else:
             return None
 
@@ -202,16 +216,26 @@ class DataBase:
     def removePlane(self, tailNumber):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        print(f"DELETE FROM planes WHERE tailNumber='{tailNumber}'")
         cur.execute(f"DELETE FROM planes WHERE tailNumber='{tailNumber}'")
         con.commit()
         con.close()
 
+    def nickTaken(self, nick):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'SELECT 1 FROM users WHERE login="{nick}"')
+        if cur.fetchone():
+            return True
+        else:
+            return False
+
 if __name__ == '__main__':
-    con = sqlite3.connect('ticketair.db')
-    cur = con.cursor()
     db = DataBase()
     db.create_tables()
-    cur.execute("""INSERT INTO flights VALUES ("123", "123", "123", "123", "123", 123, 123.0)""")
-    con.commit()
-    con.close()
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = HomePage.Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    ui.setOrigins()
+    MainWindow.show()
+    sys.exit(app.exec_())
