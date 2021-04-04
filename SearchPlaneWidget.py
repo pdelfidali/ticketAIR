@@ -146,13 +146,10 @@ class Ui_SEARCHPLANEPanel(object):
 
     def setPlane(self, plane):
         _translate = QtCore.QCoreApplication.translate
-        self.TAILNUMBERLabel.setText(_translate("SearchPlane", str(plane.tailNumber)))
-        self.label_2.setText(_translate("SearchPlane", "YEAR OF PRODUCTION:"))
-        self.label_3.setText(_translate("SearchPlane", "FLIGHT MILES:"))
-        self.label_4.setText(_translate("SearchPlane", "CAPACITY:"))
-        self.YEAROFPRLabel.setText(_translate("SearchPlane", str(plane.yearOfProduction)))
-        self.FLIGHTMILESLabel.setText(_translate("SearchPlane", str(plane.flightMiles)))
-        self.CAPACITYLabel.setText(_translate("SearchPlane", str(plane.capacity)))
+        self.TAILNUMBERLabel.setText(str(plane.tailNumber))
+        self.YEAROFPRLabel.setText(str(plane.yearOfProduction))
+        self.FLIGHTMILESLabel.setText(str(plane.flightMiles))
+        self.CAPACITYLabel.setText(str(plane.capacity))
 import file
 
 

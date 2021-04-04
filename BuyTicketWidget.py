@@ -34,7 +34,7 @@ class Ui_BUYTICKETPanel(object):
         self.ERRORFrame = QtWidgets.QFrame(self.top)
         self.ERRORFrame.setMaximumSize(QtCore.QSize(450, 35))
         self.ERRORFrame.setStyleSheet("background-color: rgb(170, 255, 127);\n"
-"border-radius: 5px;")
+                                      "border-radius: 5px;")
         self.ERRORFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.ERRORFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.ERRORFrame.setObjectName("ERRORFrame")
@@ -53,20 +53,20 @@ class Ui_BUYTICKETPanel(object):
         self.ERRORXButton = QtWidgets.QPushButton(self.ERRORFrame)
         self.ERRORXButton.setMaximumSize(QtCore.QSize(15, 15))
         self.ERRORXButton.setStyleSheet("QPushButton {\n"
-"    border-raadius: 5px;\n"
-"    background-position: centre;\n"
-"    border: 2px solid;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(50, 50, 50);\n"
-"    color: rgb(255, 234, 70);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 234, 70);\n"
-"}")
+                                        "    border-raadius: 5px;\n"
+                                        "    background-position: centre;\n"
+                                        "    border: 2px solid;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: rgb(50, 50, 50);\n"
+                                        "    color: rgb(255, 234, 70);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:pressed {\n"
+                                        "    background-color: rgb(35, 35, 35);\n"
+                                        "    color: rgb(255, 234, 70);\n"
+                                        "}")
         self.ERRORXButton.setObjectName("ERRORXButton")
         self.horizontalLayout_3.addWidget(self.ERRORXButton)
         self.horizontalLayout_2.addWidget(self.ERRORFrame)
@@ -81,24 +81,24 @@ class Ui_BUYTICKETPanel(object):
         self.main = QtWidgets.QFrame(self.content)
         self.main.setMaximumSize(QtCore.QSize(750, 550))
         self.main.setStyleSheet("background-color: rgb(57, 57, 57);\n"
-"border-radius: 10px;")
+                                "border-radius: 10px;")
         self.main.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.main.setFrameShadow(QtWidgets.QFrame.Raised)
         self.main.setObjectName("main")
         self.HANDLUGGAGERadioButton = QtWidgets.QRadioButton(self.main)
         self.HANDLUGGAGERadioButton.setGeometry(QtCore.QRect(280, 320, 31, 21))
         self.HANDLUGGAGERadioButton.setStyleSheet("QRadioButton::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QRadioButton::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                                  "    border: 3px solid rgb(100,100,100);\n"
+                                                  "    width: 15px;\n"
+                                                  "    height: 15px;\n"
+                                                  "    border-radius: 10px;\n"
+                                                  "    background-color: rgb(135, 135, 135);\n"
+                                                  "}\n"
+                                                  "\n"
+                                                  "QRadioButton::indicator:checked {\n"
+                                                  "    border: 3px solid rgb(255,255,0);\n"
+                                                  "    background-color: rgb(255, 255, 127);\n"
+                                                  "}")
         self.HANDLUGGAGERadioButton.setText("")
         self.HANDLUGGAGERadioButton.setObjectName("HANDLUGGAGERadioButton")
         self.LOGOFrame = QtWidgets.QFrame(self.main)
@@ -113,22 +113,22 @@ class Ui_BUYTICKETPanel(object):
         font.setPointSize(10)
         self.FLIGHTNUMBERLabel.setFont(font)
         self.FLIGHTNUMBERLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    \n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(255,255,127);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                             "    border: 2px solid rgb(45,45,45);\n"
+                                             "    border-radius: 5px;    \n"
+                                             "    padding: 15 px;\n"
+                                             "    background-color: rgb(30,30,30);\n"
+                                             "    \n"
+                                             "    color: rgb(255, 255, 255);\n"
+                                             "}\n"
+                                             "\n"
+                                             "QLineEdit:hover {\n"
+                                             "    border: 2px solid rgb(55,55,55);\n"
+                                             "}\n"
+                                             "\n"
+                                             "QLineEdit:focus {\n"
+                                             "    border: 2px solid rgb(255,255,127);\n"
+                                             "    color: rgb(200,200,200)\n"
+                                             "}")
         self.FLIGHTNUMBERLabel.setText("")
         self.FLIGHTNUMBERLabel.setMaxLength(100)
         self.FLIGHTNUMBERLabel.setObjectName("FLIGHTNUMBERLabel")
@@ -138,22 +138,22 @@ class Ui_BUYTICKETPanel(object):
         font.setPointSize(10)
         self.NAMELabel.setFont(font)
         self.NAMELabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    \n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(255,255,127);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                     "    border: 2px solid rgb(45,45,45);\n"
+                                     "    border-radius: 5px;    \n"
+                                     "    padding: 15 px;\n"
+                                     "    background-color: rgb(30,30,30);\n"
+                                     "    \n"
+                                     "    color: rgb(255, 255, 255);\n"
+                                     "}\n"
+                                     "\n"
+                                     "QLineEdit:hover {\n"
+                                     "    border: 2px solid rgb(55,55,55);\n"
+                                     "}\n"
+                                     "\n"
+                                     "QLineEdit:focus {\n"
+                                     "    border: 2px solid rgb(255,255,127);\n"
+                                     "    color: rgb(200,200,200)\n"
+                                     "}")
         self.NAMELabel.setText("")
         self.NAMELabel.setMaxLength(100)
         self.NAMELabel.setObjectName("NAMELabel")
@@ -163,22 +163,22 @@ class Ui_BUYTICKETPanel(object):
         font.setPointSize(10)
         self.SURNAMELabel.setFont(font)
         self.SURNAMELabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    \n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(255,255,127);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                        "    border: 2px solid rgb(45,45,45);\n"
+                                        "    border-radius: 5px;    \n"
+                                        "    padding: 15 px;\n"
+                                        "    background-color: rgb(30,30,30);\n"
+                                        "    \n"
+                                        "    color: rgb(255, 255, 255);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:hover {\n"
+                                        "    border: 2px solid rgb(55,55,55);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:focus {\n"
+                                        "    border: 2px solid rgb(255,255,127);\n"
+                                        "    color: rgb(200,200,200)\n"
+                                        "}")
         self.SURNAMELabel.setText("")
         self.SURNAMELabel.setMaxLength(100)
         self.SURNAMELabel.setObjectName("SURNAMELabel")
@@ -213,33 +213,33 @@ class Ui_BUYTICKETPanel(object):
         self.UNDER15KGRadioButton = QtWidgets.QRadioButton(self.main)
         self.UNDER15KGRadioButton.setGeometry(QtCore.QRect(390, 320, 31, 21))
         self.UNDER15KGRadioButton.setStyleSheet("QRadioButton::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QRadioButton::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                                "    border: 3px solid rgb(100,100,100);\n"
+                                                "    width: 15px;\n"
+                                                "    height: 15px;\n"
+                                                "    border-radius: 10px;\n"
+                                                "    background-color: rgb(135, 135, 135);\n"
+                                                "}\n"
+                                                "\n"
+                                                "QRadioButton::indicator:checked {\n"
+                                                "    border: 3px solid rgb(255,255,0);\n"
+                                                "    background-color: rgb(255, 255, 127);\n"
+                                                "}")
         self.UNDER15KGRadioButton.setText("")
         self.UNDER15KGRadioButton.setObjectName("UNDER15KGRadioButton")
         self.OVER15KGRadioButton = QtWidgets.QRadioButton(self.main)
         self.OVER15KGRadioButton.setGeometry(QtCore.QRect(490, 320, 31, 21))
         self.OVER15KGRadioButton.setStyleSheet("QRadioButton::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QRadioButton::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                               "    border: 3px solid rgb(100,100,100);\n"
+                                               "    width: 15px;\n"
+                                               "    height: 15px;\n"
+                                               "    border-radius: 10px;\n"
+                                               "    background-color: rgb(135, 135, 135);\n"
+                                               "}\n"
+                                               "\n"
+                                               "QRadioButton::indicator:checked {\n"
+                                               "    border: 3px solid rgb(255,255,0);\n"
+                                               "    background-color: rgb(255, 255, 127);\n"
+                                               "}")
         self.OVER15KGRadioButton.setText("")
         self.OVER15KGRadioButton.setObjectName("OVER15KGRadioButton")
         self.BUYButton = QtWidgets.QPushButton(self.main)
@@ -250,24 +250,24 @@ class Ui_BUYTICKETPanel(object):
         font.setWeight(75)
         self.BUYButton.setFont(font)
         self.BUYButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(60,60,60);\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 5px;\n"
-"    \n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                     "    background-color: rgb(255, 255, 127);\n"
+                                     "    border: 2px solid rgb(60,60,60);\n"
+                                     "    border-radius: 5px;\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton:hover {\n"
+                                     "    background-color: rgb(60, 60, 60);\n"
+                                     "    border: 2px solid rgb(70,70,70);\n"
+                                     "    border-radius: 5px;\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton:pressed {\n"
+                                     "    background-color: rgb(255, 255, 127);\n"
+                                     "    border: 2px solid rgb(0,0,0);\n"
+                                     "    border-radius: 5px;\n"
+                                     "    \n"
+                                     "    color: rgb(35, 35, 35);\n"
+                                     "}")
         self.BUYButton.setObjectName("BUYButton")
         self.NUMBEROFPASSENGERS = QtWidgets.QLabel(self.main)
         self.NUMBEROFPASSENGERS.setGeometry(QtCore.QRect(170, 350, 171, 31))
@@ -279,7 +279,7 @@ class Ui_BUYTICKETPanel(object):
         self.NUMBEROFPASSENGERSComboBox = QtWidgets.QComboBox(self.main)
         self.NUMBEROFPASSENGERSComboBox.setGeometry(QtCore.QRect(350, 360, 131, 21))
         self.NUMBEROFPASSENGERSComboBox.setStyleSheet("background-color: rgb(200, 200, 200);\n"
-"border-radius: 10px;")
+                                                      "border-radius: 10px;")
         self.NUMBEROFPASSENGERSComboBox.setObjectName("NUMBEROFPASSENGERSComboBox")
         self.Line = QtWidgets.QLabel(self.main)
         self.Line.setGeometry(QtCore.QRect(190, 170, 401, 16))
@@ -312,7 +312,7 @@ class Ui_BUYTICKETPanel(object):
         font.setPointSize(12)
         self.PASSWORDLabel.setFont(font)
         self.PASSWORDLabel.setStyleSheet("background-color: rgb(57, 57, 57);\n"
-"border-radius: 10px;")
+                                         "border-radius: 10px;")
         self.PASSWORDLabel.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.PASSWORDLabel.setFrameShadow(QtWidgets.QFrame.Raised)
         self.PASSWORDLabel.setObjectName("PASSWORDLabel")
@@ -322,22 +322,22 @@ class Ui_BUYTICKETPanel(object):
         font.setPointSize(10)
         self.NUMBEROFPASSENGERSLabel.setFont(font)
         self.NUMBEROFPASSENGERSLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    \n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(255,255,127);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                                   "    border: 2px solid rgb(45,45,45);\n"
+                                                   "    border-radius: 5px;    \n"
+                                                   "    padding: 15 px;\n"
+                                                   "    background-color: rgb(30,30,30);\n"
+                                                   "    \n"
+                                                   "    color: rgb(255, 255, 255);\n"
+                                                   "}\n"
+                                                   "\n"
+                                                   "QLineEdit:hover {\n"
+                                                   "    border: 2px solid rgb(55,55,55);\n"
+                                                   "}\n"
+                                                   "\n"
+                                                   "QLineEdit:focus {\n"
+                                                   "    border: 2px solid rgb(255,255,127);\n"
+                                                   "    color: rgb(200,200,200)\n"
+                                                   "}")
         self.NUMBEROFPASSENGERSLabel.setText("")
         self.NUMBEROFPASSENGERSLabel.setMaxLength(100)
         self.NUMBEROFPASSENGERSLabel.setObjectName("NUMBEROFPASSENGERSLabel")
@@ -348,17 +348,17 @@ class Ui_BUYTICKETPanel(object):
         font.setPointSize(10)
         self.HANGLUGGAGEBox.setFont(font)
         self.HANGLUGGAGEBox.setStyleSheet("QCheckBox::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                          "    border: 3px solid rgb(100,100,100);\n"
+                                          "    width: 15px;\n"
+                                          "    height: 15px;\n"
+                                          "    border-radius: 10px;\n"
+                                          "    background-color: rgb(135, 135, 135);\n"
+                                          "}\n"
+                                          "\n"
+                                          "QCheckBox::indicator:checked {\n"
+                                          "    border: 3px solid rgb(255,255,0);\n"
+                                          "    background-color: rgb(255, 255, 127);\n"
+                                          "}")
         self.HANGLUGGAGEBox.setText("")
         self.HANGLUGGAGEBox.setObjectName("HANGLUGGAGEBox")
         self.UNDER15KGBox = QtWidgets.QCheckBox(self.PASSWORDLabel)
@@ -368,17 +368,17 @@ class Ui_BUYTICKETPanel(object):
         font.setPointSize(10)
         self.UNDER15KGBox.setFont(font)
         self.UNDER15KGBox.setStyleSheet("QCheckBox::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                        "    border: 3px solid rgb(100,100,100);\n"
+                                        "    width: 15px;\n"
+                                        "    height: 15px;\n"
+                                        "    border-radius: 10px;\n"
+                                        "    background-color: rgb(135, 135, 135);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QCheckBox::indicator:checked {\n"
+                                        "    border: 3px solid rgb(255,255,0);\n"
+                                        "    background-color: rgb(255, 255, 127);\n"
+                                        "}")
         self.UNDER15KGBox.setText("")
         self.UNDER15KGBox.setObjectName("UNDER15KGBox")
         self.OVER15KGBox = QtWidgets.QCheckBox(self.PASSWORDLabel)
@@ -388,17 +388,17 @@ class Ui_BUYTICKETPanel(object):
         font.setPointSize(10)
         self.OVER15KGBox.setFont(font)
         self.OVER15KGBox.setStyleSheet("QCheckBox::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                       "    border: 3px solid rgb(100,100,100);\n"
+                                       "    width: 15px;\n"
+                                       "    height: 15px;\n"
+                                       "    border-radius: 10px;\n"
+                                       "    background-color: rgb(135, 135, 135);\n"
+                                       "}\n"
+                                       "\n"
+                                       "QCheckBox::indicator:checked {\n"
+                                       "    border: 3px solid rgb(255,255,0);\n"
+                                       "    background-color: rgb(255, 255, 127);\n"
+                                       "}")
         self.OVER15KGBox.setText("")
         self.OVER15KGBox.setObjectName("OVER15KGBox")
         self.LogoFrame = QtWidgets.QFrame(self.PASSWORDLabel)
@@ -453,17 +453,20 @@ class Ui_BUYTICKETPanel(object):
         self.OVER15KG.setText(_translate("BUYTICKETPanel", "OVER 15 KG"))
         self.BUYButton.setText(_translate("BUYTICKETPanel", "BUY"))
         self.NUMBEROFPASSENGERS.setText(_translate("BUYTICKETPanel", "NUMBER OF PASSENGERS:"))
-        self.Line.setText(_translate("BUYTICKETPanel", "____________________________________________________________________________________________"))
+        self.Line.setText(_translate("BUYTICKETPanel",
+                                     "____________________________________________________________________________________________"))
         self.TOTAL.setText(_translate("BUYTICKETPanel", "TOTAL:"))
         self.TOTALPRICELabel.setText(_translate("BUYTICKETPanel", "189 "))
         self.NUMBEROFPASSENGERSLabel.setPlaceholderText(_translate("BUYTICKETPanel", "NUMBER OF PASSENGERS"))
         self.TOTALPRICECURRENCYLabel.setText(_translate("BUYTICKETPanel", "€"))
         self.CURRENCYLabel.setText(_translate("BUYTICKETPanel", "€"))
-import file
 
+
+import file
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     BUYTICKETPanel = QtWidgets.QWidget()
     ui = Ui_BUYTICKETPanel()
