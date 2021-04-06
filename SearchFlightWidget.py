@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sqlite3
 
 
 class Ui_SEARCHFLIGHTPanel(object):
@@ -72,7 +73,7 @@ class Ui_SEARCHFLIGHTPanel(object):
         self.TABLEWidget.setFrameShadow(QtWidgets.QFrame.Plain)
         self.TABLEWidget.setDragDropMode(QtWidgets.QAbstractItemView.NoDragDrop)
         self.TABLEWidget.setAlternatingRowColors(False)
-        self.TABLEWidget.setRowCount(0)
+        self.TABLEWidget.setRowCount(8)
         self.TABLEWidget.setObjectName("TABLEWidget")
         self.TABLEWidget.setColumnCount(7)
         item = QtWidgets.QTableWidgetItem()
@@ -98,7 +99,7 @@ class Ui_SEARCHFLIGHTPanel(object):
         self.TABLEWidget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(8)
         font.setBold(True)
         font.setWeight(75)
         item.setFont(font)
@@ -118,7 +119,7 @@ class Ui_SEARCHFLIGHTPanel(object):
         self.TABLEWidget.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         item.setFont(font)
@@ -128,7 +129,7 @@ class Ui_SEARCHFLIGHTPanel(object):
         self.TABLEWidget.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         item.setFont(font)
@@ -138,7 +139,7 @@ class Ui_SEARCHFLIGHTPanel(object):
         self.TABLEWidget.setHorizontalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(8)
         font.setBold(True)
         font.setWeight(75)
         item.setFont(font)
@@ -178,15 +179,40 @@ class Ui_SEARCHFLIGHTPanel(object):
         item = self.TABLEWidget.horizontalHeaderItem(1)
         item.setText(_translate("SEARCHFLIGHTPanel", "TO"))
         item = self.TABLEWidget.horizontalHeaderItem(2)
-        item.setText(_translate("SEARCHFLIGHTPanel", "DATE"))
-        item = self.TABLEWidget.horizontalHeaderItem(3)
-        item.setText(_translate("SEARCHFLIGHTPanel", "TIME (HOUR)"))
-        item = self.TABLEWidget.horizontalHeaderItem(4)
         item.setText(_translate("SEARCHFLIGHTPanel", "FLIGHT NUMBER"))
-        item = self.TABLEWidget.horizontalHeaderItem(5)
+        item = self.TABLEWidget.horizontalHeaderItem(3)
         item.setText(_translate("SEARCHFLIGHTPanel", "PLANE NUMBER"))
-        item = self.TABLEWidget.horizontalHeaderItem(6)
+        item = self.TABLEWidget.horizontalHeaderItem(4)
+        item.setText(_translate("SEARCHFLIGHTPanel", "DATE"))
+        item = self.TABLEWidget.horizontalHeaderItem(5)
         item.setText(_translate("SEARCHFLIGHTPanel", "PRICE €"))
+        item = self.TABLEWidget.horizontalHeaderItem(6)
+        item.setText(_translate("SEARCHFLIGHTPanel", "TIME (HOUR)"))
+
+    def setFlight(self, flight):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        sqlquery = f'SELECT * FROM flights WHERE origin = "{flight.origin}" AND destination = "{flight.destination}"'
+
+        # result = cur.execute(sqlquery)
+        # print(result)
+        # self.tableWidget.setRowCount(len(sqlquery))
+        # origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
+        # con.close()
+
+        tablerow = 0
+        # self.tableWidget.setRowCount(50)
+
+        for row in cur.execute(sqlquery):
+            print(row)
+            self.TABLEWidget.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(row[0]))
+            self.TABLEWidget.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(row[1]))
+            self.TABLEWidget.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(row[2]))
+            self.TABLEWidget.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(row[3]))
+            self.TABLEWidget.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(row[4]))
+            self.TABLEWidget.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+            self.TABLEWidget.setItem(tablerow, 6, QtWidgets.QTableWidgetItem(str(row[6])))
+            tablerow = tablerow + 1
 import file
 
 
