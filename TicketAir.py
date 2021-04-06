@@ -229,6 +229,23 @@ class DataBase:
         else:
             return False
 
+    def getFlight(self, flightNumber):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'SELECT * FROM flights WHERE flightNumber = "{flightNumber}"')
+        origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
+        con.close()
+        return Flight(origin, destination, flightNumber, tailNumber, date, price, time)
+
+    def getFlightfromBox(self, origin, destination):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f'SELECT * FROM flights WHERE origin = "{origin}" AND destination = "{destination}"')
+        origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
+        con.close()
+        return Flight(origin, destination, flightNumber, tailNumber, date, price, time)
+
+
 if __name__ == '__main__':
     db = DataBase()
     db.create_tables()

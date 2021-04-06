@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import TicketAir
 from LoginWidget import Ui_LOGINWidget
 from AdminWidget import Ui_ADMINPanel
+from SearchFlightWidget import Ui_SEARCHFLIGHTPanel
 from SearchPlaneWidget import Ui_SEARCHPLANEPanel
 
 
@@ -637,6 +638,7 @@ class Ui_MainWindow(object):
         self.AMINPANELButton.clicked.connect(self.showAdminPanel)
         self.FINDPLANEButton.clicked.connect(self.showPlanePanel)
         self.FINDFLIGHTButton.clicked.connect(self.showFlightPanel)
+        self.SEARCHFLIGHTButton.clicked.connect(self.showFlightPanelfromBox)
         self.NOTFOUNDEDButton.clicked.connect(self.closePopup)
 
     def retranslateUi(self, MainWindow):
@@ -729,8 +731,30 @@ class Ui_MainWindow(object):
             self.NOTFOUNDEDLabel.setText('There is no plane with that tail number.')
 
     def showFlightPanel(self):
-        pass
+        try:
+            self.db = TicketAir.DataBase()
+            flight = self.db.getFlight(str(self.ENTERFLIGHTCODELabel.text()))
+            self.SEARCHFLIGHTPanel = QtWidgets.QWidget()
+            self.ui = Ui_SEARCHFLIGHTPanel()
+            self.ui.setupUi(self.SEARCHFLIGHTPanel)
+            self.SEARCHFLIGHTPanel.show()
+            self.ui.setFlight(flight)
+        except:
+            self.NOTFOUNDEDFrame.show()
+            self.NOTFOUNDEDLabel.setText('There is no flight with that number.')
 
+    def showFlightPanelfromBox(self):
+        try:
+            self.db = TicketAir.DataBase()
+            flight = self.db.getFlightfromBox(str(self.FROMComboBox.currentText()), str(self.TOComboBox.currentText()))
+            self.SEARCHFLIGHTPanel = QtWidgets.QWidget()
+            self.ui = Ui_SEARCHFLIGHTPanel()
+            self.ui.setupUi(self.SEARCHFLIGHTPanel)
+            self.SEARCHFLIGHTPanel.show()
+            self.ui.setFlight(flight)
+        except:
+            self.NOTFOUNDEDFrame.show()
+            self.NOTFOUNDEDLabel.setText('There is no flight with that destination.')
     def closePopup(self):
         self.NOTFOUNDEDFrame.hide()
 
