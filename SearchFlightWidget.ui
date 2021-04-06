@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SEARCHPLANEPanel</class>
- <widget class="QWidget" name="SEARCHPLANEPanel">
+ <class>SEARCHFLIGHTPanel</class>
+ <widget class="QWidget" name="SEARCHFLIGHTPanel">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -407,7 +407,7 @@ font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
   </layout>
  </widget>
  <resources>
-  <include location="../../new/ticketAIR/file.qrc"/>
+  <include location="../../try/ticketAIR/file.qrc"/>
  </resources>
  <connections/>
 </ui>

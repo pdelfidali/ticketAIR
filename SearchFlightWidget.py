@@ -11,16 +11,16 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_SEARCHPLANEPanel(object):
-    def setupUi(self, SEARCHPLANEPanel):
-        SEARCHPLANEPanel.setObjectName("SEARCHPLANEPanel")
-        SEARCHPLANEPanel.resize(1159, 889)
-        SEARCHPLANEPanel.setMinimumSize(QtCore.QSize(500, 700))
-        self.vboxlayout = QtWidgets.QVBoxLayout(SEARCHPLANEPanel)
+class Ui_SEARCHFLIGHTPanel(object):
+    def setupUi(self, SEARCHFLIGHTPanel):
+        SEARCHFLIGHTPanel.setObjectName("SEARCHFLIGHTPanel")
+        SEARCHFLIGHTPanel.resize(1159, 889)
+        SEARCHFLIGHTPanel.setMinimumSize(QtCore.QSize(500, 700))
+        self.vboxlayout = QtWidgets.QVBoxLayout(SEARCHFLIGHTPanel)
         self.vboxlayout.setContentsMargins(0, 0, 2, 0)
         self.vboxlayout.setSpacing(0)
         self.vboxlayout.setObjectName("vboxlayout")
-        self.top = QtWidgets.QFrame(SEARCHPLANEPanel)
+        self.top = QtWidgets.QFrame(SEARCHFLIGHTPanel)
         self.top.setMaximumSize(QtCore.QSize(16777215, 40))
         self.top.setBaseSize(QtCore.QSize(0, 0))
         self.top.setStyleSheet("background-color: rgb(255, 255, 127);")
@@ -32,7 +32,7 @@ class Ui_SEARCHPLANEPanel(object):
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.vboxlayout.addWidget(self.top)
-        self.content = QtWidgets.QFrame(SEARCHPLANEPanel)
+        self.content = QtWidgets.QFrame(SEARCHFLIGHTPanel)
         self.content.setStyleSheet("background-color: rgb(143, 143, 143);")
         self.content.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.content.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -156,7 +156,7 @@ class Ui_SEARCHPLANEPanel(object):
         self.TABLEWidget.verticalHeader().setStretchLastSection(False)
         self.horizontalLayout.addWidget(self.main)
         self.vboxlayout.addWidget(self.content)
-        self.bottom = QtWidgets.QFrame(SEARCHPLANEPanel)
+        self.bottom = QtWidgets.QFrame(SEARCHFLIGHTPanel)
         self.bottom.setMaximumSize(QtCore.QSize(16777215, 40))
         self.bottom.setBaseSize(QtCore.QSize(0, 0))
         self.bottom.setStyleSheet("background-color: rgb(255, 255, 127);")
@@ -165,36 +165,36 @@ class Ui_SEARCHPLANEPanel(object):
         self.bottom.setObjectName("bottom")
         self.vboxlayout.addWidget(self.bottom)
 
-        self.retranslateUi(SEARCHPLANEPanel)
-        QtCore.QMetaObject.connectSlotsByName(SEARCHPLANEPanel)
+        self.retranslateUi(SEARCHFLIGHTPanel)
+        QtCore.QMetaObject.connectSlotsByName(SEARCHFLIGHTPanel)
 
-    def retranslateUi(self, SEARCHPLANEPanel):
+    def retranslateUi(self, SEARCHFLIGHTPanel):
         _translate = QtCore.QCoreApplication.translate
-        SEARCHPLANEPanel.setWindowTitle(_translate("SEARCHPLANEPanel", "SEARCH FLIGHT"))
-        self.Line.setText(_translate("SEARCHPLANEPanel", "______________________________________________________________________________________________________________________________________________"))
+        SEARCHFLIGHTPanel.setWindowTitle(_translate("SEARCHFLIGHTPanel", "SEARCH FLIGHT"))
+        self.Line.setText(_translate("SEARCHFLIGHTPanel", "______________________________________________________________________________________________________________________________________________"))
         self.TABLEWidget.setSortingEnabled(False)
         item = self.TABLEWidget.horizontalHeaderItem(0)
-        item.setText(_translate("SEARCHPLANEPanel", "FROM"))
+        item.setText(_translate("SEARCHFLIGHTPanel", "FROM"))
         item = self.TABLEWidget.horizontalHeaderItem(1)
-        item.setText(_translate("SEARCHPLANEPanel", "TO"))
+        item.setText(_translate("SEARCHFLIGHTPanel", "TO"))
         item = self.TABLEWidget.horizontalHeaderItem(2)
-        item.setText(_translate("SEARCHPLANEPanel", "DATE"))
+        item.setText(_translate("SEARCHFLIGHTPanel", "DATE"))
         item = self.TABLEWidget.horizontalHeaderItem(3)
-        item.setText(_translate("SEARCHPLANEPanel", "TIME (HOUR)"))
+        item.setText(_translate("SEARCHFLIGHTPanel", "TIME (HOUR)"))
         item = self.TABLEWidget.horizontalHeaderItem(4)
-        item.setText(_translate("SEARCHPLANEPanel", "FLIGHT NUMBER"))
+        item.setText(_translate("SEARCHFLIGHTPanel", "FLIGHT NUMBER"))
         item = self.TABLEWidget.horizontalHeaderItem(5)
-        item.setText(_translate("SEARCHPLANEPanel", "PLANE NUMBER"))
+        item.setText(_translate("SEARCHFLIGHTPanel", "PLANE NUMBER"))
         item = self.TABLEWidget.horizontalHeaderItem(6)
-        item.setText(_translate("SEARCHPLANEPanel", "PRICE €"))
+        item.setText(_translate("SEARCHFLIGHTPanel", "PRICE €"))
 import file
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    SEARCHPLANEPanel = QtWidgets.QWidget()
-    ui = Ui_SEARCHPLANEPanel()
-    ui.setupUi(SEARCHPLANEPanel)
-    SEARCHPLANEPanel.show()
+    SEARCHFLIGHTPanel = QtWidgets.QWidget()
+    ui = Ui_SEARCHFLIGHTPanel()
+    ui.setupUi(SEARCHFLIGHTPanel)
+    SEARCHFLIGHTPanel.show()
     sys.exit(app.exec_())
