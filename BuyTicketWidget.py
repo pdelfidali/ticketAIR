@@ -453,8 +453,8 @@ class Ui_BUYTICKETPanel(object):
         self.ERRORLabel.setText(_translate("BUYTICKETPanel", "THANK YOU FOR SHOPPING. HAVE A NICE FLIGHT!"))
         self.ERRORXButton.setText(_translate("BUYTICKETPanel", "X"))
         self.FLIGHTNUMBERLabel.setPlaceholderText(_translate("BUYTICKETPanel", "FLIGHT NUMBER"))
-        self.NAMELabel.setPlaceholderText(_translate("BUYTICKETPanel", "NAME"))
-        self.SURNAMELabel.setPlaceholderText(_translate("BUYTICKETPanel", "SURNAME"))
+        self.NAMELabel.setPlaceholderText(_translate("BUYTICKETPanel", "FROM"))
+        self.SURNAMELabel.setPlaceholderText(_translate("BUYTICKETPanel", "TO"))
         self.LABELCAPACITY.setText(_translate("BUYTICKETPanel", "LABEL CAPACITY:"))
         self.HANDLUGGAGE.setText(_translate("BUYTICKETPanel", "HAND LUGGAGE"))
         self.UNDER15KG.setText(_translate("BUYTICKETPanel", "UNDER 15 KG"))
@@ -478,6 +478,8 @@ class Ui_BUYTICKETPanel(object):
         self.flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
         if self.flight != None:
             self.TOTALPRICELabel.setText(str(self.flight.price))
+            self.NAMELabel.setText(str(self.flight.origin))
+            self.SURNAMELabel.setText(str(self.flight.destination))
             self.BUYButton.setEnabled(True)
         else:
             self.TOTALPRICELabel.setText('----')
