@@ -19,16 +19,13 @@ class Flight:
         self.destination = destination
         self.flightNumber = flightNumber
         if isinstance(plane, str):
-            print('this')
             plane = DataBase().getPlane(plane)
         self.plane = plane
         self.date = date
         self.price = price
         self.time = time
-        print('init done')
 
     def values(self):
-        print('values')
         return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.plane.tailNumber}", "{self.date}", {self.price}, {self.time})'
 
 
@@ -233,9 +230,13 @@ class DataBase:
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         cur.execute(f'SELECT * FROM flights WHERE flightNumber = "{flightNumber}"')
-        origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
+        try:
+            origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
+            flight = Flight(origin, destination, flightNumber, tailNumber, date, price, time)
+        except TypeError:
+            flight = None
         con.close()
-        return Flight(origin, destination, flightNumber, tailNumber, date, price, time)
+        return flight
 
     def getFlightfromBox(self, origin, destination):
         con = sqlite3.connect('ticketair.db')
@@ -245,6 +246,14 @@ class DataBase:
         con.close()
         return Flight(origin, destination, flightNumber, tailNumber, date, price, time)
 
+    def addTicket(self, user, flight):
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute(f"INSERT INTO tickets VALUES ('{flight.flightNumber}', '{flight.date}', {flight.price})")
+        con.commit()
+        cur.execute(f"UPDATE users SET ticketsIDs = ticketsIDs || '{cur.lastrowid}' || '|' WHERE login = '{user}'")
+        con.commit()
+        con.close()
 
 if __name__ == '__main__':
     db = DataBase()
@@ -256,3 +265,7 @@ if __name__ == '__main__':
     ui.setOrigins()
     MainWindow.show()
     sys.exit(app.exec_())
+    # db = DataBase()
+    # user = Passenger('piotr', '', 'piotr', 'piotr', 'piotr')
+    # fl = db.getFlight('1568')
+    # db.addTicket(user, fl)

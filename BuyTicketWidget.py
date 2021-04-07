@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import TicketAir
 
 class Ui_BUYTICKETPanel(object):
     def setupUi(self, BUYTICKETPanel):
@@ -129,7 +129,9 @@ class Ui_BUYTICKETPanel(object):
                                              "    border: 2px solid rgb(255,255,127);\n"
                                              "    color: rgb(200,200,200)\n"
                                              "}")
-        self.FLIGHTNUMBERLabel.setText("")
+        self.FLIGHTNUMBERLabel.setText(self.flight)
+        if self.flight != '':
+            self.FLIGHTNUMBERLabel.setReadOnly(True)
         self.FLIGHTNUMBERLabel.setMaxLength(100)
         self.FLIGHTNUMBERLabel.setObjectName("FLIGHTNUMBERLabel")
         self.NAMELabel = QtWidgets.QLineEdit(self.main)
@@ -439,6 +441,12 @@ class Ui_BUYTICKETPanel(object):
         self.retranslateUi(BUYTICKETPanel)
         QtCore.QMetaObject.connectSlotsByName(BUYTICKETPanel)
 
+        self.BUYButton.setEnabled(False)
+        self.ERRORFrame.hide()
+        self.BUYButton.clicked.connect(self.buyTicket)
+        self.FLIGHTNUMBERLabel.editingFinished.connect(self.edited)
+        self.ERRORXButton.clicked.connect(self.hideError)
+
     def retranslateUi(self, BUYTICKETPanel):
         _translate = QtCore.QCoreApplication.translate
         BUYTICKETPanel.setWindowTitle(_translate("BUYTICKETPanel", "BUY TICKET"))
@@ -456,11 +464,31 @@ class Ui_BUYTICKETPanel(object):
         self.Line.setText(_translate("BUYTICKETPanel",
                                      "____________________________________________________________________________________________"))
         self.TOTAL.setText(_translate("BUYTICKETPanel", "TOTAL:"))
-        self.TOTALPRICELabel.setText(_translate("BUYTICKETPanel", "189 "))
+        self.TOTALPRICELabel.setText(_translate("BUYTICKETPanel", "----"))
         self.NUMBEROFPASSENGERSLabel.setPlaceholderText(_translate("BUYTICKETPanel", "NUMBER OF PASSENGERS"))
         self.TOTALPRICECURRENCYLabel.setText(_translate("BUYTICKETPanel", "€"))
         self.CURRENCYLabel.setText(_translate("BUYTICKETPanel", "€"))
 
+    def buyTicket(self):
+        db = TicketAir.DataBase()
+        db.addTicket(self.nick, self.flight)
+
+    def edited(self):
+        db = TicketAir.DataBase()
+        self.flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
+        if self.flight != None:
+            self.TOTALPRICELabel.setText(str(self.flight.price))
+            self.BUYButton.setEnabled(True)
+        else:
+            self.TOTALPRICELabel.setText('----')
+            self.BUYButton.setEnabled(False)
+
+    def __init__(self, nick, flight = ''):
+        self.nick = nick
+        self.flight = flight
+
+    def hideError(self):
+        self.ERRORLabel.hide()
 
 import file
 
@@ -469,7 +497,7 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     BUYTICKETPanel = QtWidgets.QWidget()
-    ui = Ui_BUYTICKETPanel()
+    ui = Ui_BUYTICKETPanel('piotr')
     ui.setupUi(BUYTICKETPanel)
     BUYTICKETPanel.show()
     sys.exit(app.exec_())

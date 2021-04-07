@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from TicketAir import DataBase, Flight, Plane
+import TicketAir
 
 
 class Ui_ADMINPanel(object):

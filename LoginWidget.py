@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from TicketAir import DataBase, Admin, Passenger
+from TicketAir import *
 import HomePage
 
 class Ui_LOGINWidget(object):

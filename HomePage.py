@@ -14,6 +14,7 @@ from LoginWidget import Ui_LOGINWidget
 from AdminWidget import Ui_ADMINPanel
 from SearchFlightWidget import Ui_SEARCHFLIGHTPanel
 from SearchPlaneWidget import Ui_SEARCHPLANEPanel
+from BuyTicketWidget import Ui_BUYTICKETPanel
 
 
 class Ui_MainWindow(object):
@@ -640,6 +641,7 @@ class Ui_MainWindow(object):
         self.FINDFLIGHTButton.clicked.connect(self.showFlightPanel)
         self.SEARCHFLIGHTButton.clicked.connect(self.showFlightPanelfromBox)
         self.NOTFOUNDEDButton.clicked.connect(self.closePopup)
+        self.BUYTICKETButton.clicked.connect(self.showBuyTicket)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -766,6 +768,18 @@ class Ui_MainWindow(object):
         else:
             self.AMINPANELButton.hide()
 
+    def showBuyTicket(self):
+        if self.currentUser != None:
+            self.BUYTICKETPanel = QtWidgets.QWidget()
+            self.ui = Ui_BUYTICKETPanel(nick= self.currentUser.login, flight='')
+            self.ui.setupUi(self.BUYTICKETPanel)
+            self.BUYTICKETPanel.show()
+        else:
+            self.NOTFOUNDEDFrame.show()
+            self.NOTFOUNDEDLabel.setText('You must be logged in to buy ticket.')
+
+    def __init__(self):
+        self.currentUser = None
 
 import file
 
