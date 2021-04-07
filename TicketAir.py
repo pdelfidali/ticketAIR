@@ -230,11 +230,8 @@ class DataBase:
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         cur.execute(f'SELECT * FROM flights WHERE flightNumber = "{flightNumber}"')
-        try:
-            origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
-            flight = Flight(origin, destination, flightNumber, tailNumber, date, price, time)
-        except TypeError:
-            flight = None
+        origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
+        flight = Flight(origin, destination, flightNumber, tailNumber, date, price, time)
         con.close()
         return flight
 
