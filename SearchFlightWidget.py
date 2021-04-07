@@ -193,15 +193,7 @@ class Ui_SEARCHFLIGHTPanel(object):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         sqlquery = f'SELECT * FROM flights WHERE origin = "{flight.origin}" AND destination = "{flight.destination}"'
-
-        # result = cur.execute(sqlquery)
-        # print(result)
-        # self.tableWidget.setRowCount(len(sqlquery))
-        # origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
-        # con.close()
-
         tablerow = 0
-        # self.tableWidget.setRowCount(50)
 
         for row in cur.execute(sqlquery):
             print(row)

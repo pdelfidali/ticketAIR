@@ -642,6 +642,8 @@ class Ui_MainWindow(object):
         self.SEARCHFLIGHTButton.clicked.connect(self.showFlightPanelfromBox)
         self.NOTFOUNDEDButton.clicked.connect(self.closePopup)
         self.BUYTICKETButton.clicked.connect(self.showBuyTicket)
+        self.NOTFOUNDEDFrame.hide()
+        self.AMINPANELButton.hide()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
