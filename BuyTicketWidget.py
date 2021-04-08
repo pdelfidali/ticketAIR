@@ -446,6 +446,7 @@ class Ui_BUYTICKETPanel(object):
         self.BUYButton.clicked.connect(self.buyTicket)
         self.FLIGHTNUMBERLabel.editingFinished.connect(self.edited)
         self.ERRORXButton.clicked.connect(self.hideError)
+        self.NUMBEROFPASSENGERSComboBox.activated.connect(self.updatePrice)
 
     def retranslateUi(self, BUYTICKETPanel):
         _translate = QtCore.QCoreApplication.translate
@@ -471,19 +472,21 @@ class Ui_BUYTICKETPanel(object):
 
     def buyTicket(self):
         db = TicketAir.DataBase()
-        db.addTicket(self.nick, self.flight)
+        db.addTicket(self.nick, db.getFlight(self.FLIGHTNUMBERLabel.text()), int(self.NUMBEROFPASSENGERSComboBox.currentText()))
 
     def edited(self):
         db = TicketAir.DataBase()
-        self.flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
-        if self.flight != None:
-            self.TOTALPRICELabel.setText(str(self.flight.price))
-            self.NAMELabel.setText(str(self.flight.origin))
-            self.SURNAMELabel.setText(str(self.flight.destination))
+        flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
+        if flight != None:
+            self.TOTALPRICELabel.setText(str(flight.price))
+            self.NAMELabel.setText(str(flight.origin))
+            self.SURNAMELabel.setText(str(flight.destination))
             self.BUYButton.setEnabled(True)
+            self.updateCombo(flight)
         else:
             self.TOTALPRICELabel.setText('----')
             self.BUYButton.setEnabled(False)
+            self.NUMBEROFPASSENGERSComboBox.clear()
 
     def __init__(self, nick, flight = ''):
         self.nick = nick
@@ -491,6 +494,23 @@ class Ui_BUYTICKETPanel(object):
 
     def hideError(self):
         self.ERRORLabel.hide()
+
+    def updateCombo(self, flight):
+        self.NUMBEROFPASSENGERSComboBox.clear()
+        n = min(flight.plane.capacity - flight.sold, 10)
+        if n != 0:
+            for i in range(1, n+1):
+                self.NUMBEROFPASSENGERSComboBox.addItem(str(i))
+        else:
+            self.ERRORFrame.show()
+            self.ERRORLabel.setText('Sorry, this flight is full.')
+            self.BUYButton.setEnabled(False)
+
+    def updatePrice(self):
+        db = TicketAir.DataBase()
+        flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
+        self.TOTALPRICELabel.setText(str(flight.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+
 
 import file
 

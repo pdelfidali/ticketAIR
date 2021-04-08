@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from TicketAir import *
+import TicketAir
 import HomePage
 
 class Ui_LOGINWidget(object):
@@ -212,6 +212,8 @@ class Ui_LOGINWidget(object):
         self.retranslateUi(LOGINWidget)
         QtCore.QMetaObject.connectSlotsByName(LOGINWidget)
         self.LOGINButton.clicked.connect(self.login)
+        self.ERRORXButton.clicked.connect(self.closePopup)
+        self.ERRORFrame.hide()
 
     def retranslateUi(self, LOGINWidget):
         _translate = QtCore.QCoreApplication.translate
@@ -227,24 +229,29 @@ class Ui_LOGINWidget(object):
         self.home = home
 
     def login(self):
-        db = DataBase()
+        db = TicketAir.DataBase()
         if self.NEWUSERRadioButton.isChecked():
             if not db.nickTaken(self.USERLabel.text()):
                 user = Passenger(self.USERLabel.text(), '', '', self.PASSWORDLabel.text(), self.USERLabel.text())
                 db.addUser(user)
                 self.home.setUser(user)
             else:
+                self.ERRORFrame.show()
                 self.ERRORLabel.setText('Username is already taken')
         elif db.nickTaken(self.USERLabel.text()):
             user = db.login(self.USERLabel.text(), self.PASSWORDLabel.text())
             if user != None:
                 self.home.setUser(user)
             else:
+                self.ERRORFrame.show()
                 self.ERRORLabel.setText('Wrong password')
         else:
+            self.ERRORFrame.show()
             self.ERRORLabel.setText('No user with this nick')
 
 
+    def closePopup(self):
+        self.ERRORFrame.hide()
 import file
 
 if __name__ == "__main__":

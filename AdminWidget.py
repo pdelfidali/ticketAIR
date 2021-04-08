@@ -578,6 +578,7 @@ class Ui_ADMINPanel(object):
         self.ADDFLIGHTButton.clicked.connect(self.addFlight)
         self.ADDPLANEButton.clicked.connect(self.addPlane)
         self.ERRORXButton.clicked.connect(self.closeError)
+        self.ERRORFrame.hide()
 
     def retranslateUi(self, ADMINPanel):
         _translate = QtCore.QCoreApplication.translate
@@ -610,7 +611,7 @@ class Ui_ADMINPanel(object):
 
     def deleteFlight(self):
         try:
-            db = DataBase()
+            db = TicketAir.DataBase()
             db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text()))
             print('deleteFlight')
         except:
@@ -619,7 +620,7 @@ class Ui_ADMINPanel(object):
 
     def deletePlane(self):
         try:
-            db = DataBase()
+            db = TicketAir.DataBase()
             db.removePlane(str(self.PLANENUMBERDeleteLabel.text()))
             print(str(self.PLANENUMBERDeleteLabel.text()))
         except:
@@ -628,25 +629,21 @@ class Ui_ADMINPanel(object):
 
     def addFlight(self):
         try:
-            self.db = DataBase()
-            print((self.FROMAddLabel.text()), (self.TOAddLabel.text()), (self.FLIGHTNUMBERAddLabel.text()),
-                       (self.PLANENUMBERAddFlightLabel.text()), (self.DATEAddLabel.text()),
+            self.db = TicketAir.DataBase()
+            flight = TicketAir.Flight((self.FROMAddLabel.text()), (self.TOAddLabel.text()), (self.FLIGHTNUMBERAddLabel.text()),
+                       self.PLANENUMBERAddFlightLabel.text(), self.DATEAddLabel.text(),
                        int(self.PRICEAddLabel.text()),
                        float(self.TIMEAddLabel.text()))
-            flight = Flight((self.FROMAddLabel.text()), (self.TOAddLabel.text()), (self.FLIGHTNUMBERAddLabel.text()),
-                       str(self.PLANENUMBERAddFlightLabel.text()), (self.DATEAddLabel.text()),
-                       int(self.PRICEAddLabel.text()),
-                       float(self.TIMEAddLabel.text()))
-            print(flight)
 
             self.db.addFlight(flight)
-        except :
-            print('Wrong')
+        except:
+            self.ERRORFrame.show()
+            self.ERRORLabel.setText("Couldn't add this plane, check values")
 
 
     def addPlane(self):
         try:
-            db = DataBase()
+            db = TicketAir.DataBase()
             db.addPlane(
                 Plane(self.YEAROFPRDAddLabel.text(), self.FLIGHTSMILESAddLabel.text(), self.CAPACITYAddLabel.text(),
                       self.PLANENUMBERAddPlaneLabel.text()))

@@ -14,7 +14,7 @@ class Flight:
         self.price = 0
         self.time = 0
 
-    def __init__(self, origin, destination, flightNumber, plane, date, price, time):
+    def __init__(self, origin, destination, flightNumber, plane, date, price, time, sold=0):
         self.origin = origin
         self.destination = destination
         self.flightNumber = flightNumber
@@ -24,9 +24,10 @@ class Flight:
         self.date = date
         self.price = price
         self.time = time
+        self.sold = sold
 
     def values(self):
-        return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.plane.tailNumber}", "{self.date}", {self.price}, {self.time})'
+        return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.plane.tailNumber}", "{self.date}", {self.price}, {self.time}, {self.plane.capacity}, {self.sold})'
 
 
 class Plane:
@@ -45,6 +46,7 @@ class Plane:
     def values(self):
         return f'("{self.tailNumber}", "{self.yearOfProduction}", "{self.flightMiles}", "{self.capacity}")'
 
+
 class Ticket:
     def __init__(self):
         self.flight = None
@@ -58,6 +60,7 @@ class Ticket:
 
     def buyTicket(self, passenger):
         passenger.tickets.append(self)
+
 
 class Passenger:
     def __init__(self):
@@ -75,32 +78,34 @@ class Passenger:
         self.login = login
 
     def values(self):
-        #Trzeba dodać ID
+        # Trzeba dodać ID
         isAdmin = int(isinstance(self, Admin))
         return f'("ID", "{self.name}", "{self.tickets}", "{isAdmin}", "{self.password}", "{self.login}")'
 
-class Admin (Passenger):
-        def __init__(self):
-            super().__init__()
 
-        def __init__(self, name, tickets, address, password, login):
-            self.name = name
-            self.tickets = tickets
-            self.address = address
-            self.password = password
-            self.login = login
+class Admin(Passenger):
+    def __init__(self):
+        super().__init__()
 
-        def addFlight(self, flight):
-            flight.add(self)
+    def __init__(self, name, tickets, address, password, login):
+        self.name = name
+        self.tickets = tickets
+        self.address = address
+        self.password = password
+        self.login = login
 
-        def addPlane(self, plane):
-            plane.add(self)
+    def addFlight(self, flight):
+        flight.add(self)
 
-        def cancelFlight(self, flight):
-            flight.cancel(self)
+    def addPlane(self, plane):
+        plane.add(self)
 
-        def removePlane(self, plane):
-            plane.remove(self)
+    def cancelFlight(self, flight):
+        flight.cancel(self)
+
+    def removePlane(self, plane):
+        plane.remove(self)
+
 
 class DataBase:
     def create_tables(self):
@@ -108,7 +113,7 @@ class DataBase:
         cur = con.cursor()
         try:
             cur.execute('''CREATE TABLE flights
-                            (origin text, destination text, flightNumber text, planeTailNumber text, date text, price real, time real)
+                            (origin text, destination text, flightNumber text, planeTailNumber text, date text, price real, time real, capacity integer, sold integer)
                         ''')
         except sqlite3.OperationalError:
             pass
@@ -163,7 +168,7 @@ class DataBase:
         con.close()
         return Plane(year, flightMiles, capacity, tailNumber)
 
-    def getDestinations(self, origin = None):
+    def getDestinations(self, origin=None):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         if origin == None or origin == '':
@@ -175,7 +180,7 @@ class DataBase:
             destinations.append(str(dest))
         return destinations
 
-    def getOrigins(self, destination = None):
+    def getOrigins(self, destination=None):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         if destination == None or destination == '':
@@ -186,7 +191,6 @@ class DataBase:
         for origin, in cur.fetchall():
             origins.append(str(origin))
         return origins
-
 
     def login(self, login, password):
         con = sqlite3.connect('ticketair.db')
@@ -229,10 +233,13 @@ class DataBase:
     def getFlight(self, flightNumber):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        cur.execute(f'SELECT * FROM flights WHERE flightNumber = "{flightNumber}"')
-        origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
-        flight = Flight(origin, destination, flightNumber, tailNumber, date, price, time)
-        con.close()
+        try:
+            cur.execute(f'SELECT * FROM flights WHERE flightNumber = "{flightNumber}"')
+            origin, destination, flightNumber, tailNumber, date, price, time, capacity, sold = cur.fetchone()
+            flight = Flight(origin, destination, flightNumber, tailNumber, date, price, time, sold)
+            con.close()
+        except:
+            flight = None
         return flight
 
     def getFlightfromBox(self, origin, destination):
@@ -243,14 +250,17 @@ class DataBase:
         con.close()
         return Flight(origin, destination, flightNumber, tailNumber, date, price, time)
 
-    def addTicket(self, user, flight):
+    def addTicket(self, user, flight, amount):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         cur.execute(f"INSERT INTO tickets VALUES ('{flight.flightNumber}', '{flight.date}', {flight.price})")
         con.commit()
         cur.execute(f"UPDATE users SET ticketsIDs = ticketsIDs || '{cur.lastrowid}' || '|' WHERE login = '{user}'")
         con.commit()
+        cur.execute(f"UPDATE flights SET sold = sold + {amount} WHERE flightNumber = '{flight.flightNumber}'")
+        con.commit()
         con.close()
+
 
 if __name__ == '__main__':
     db = DataBase()
@@ -262,7 +272,6 @@ if __name__ == '__main__':
     ui.setOrigins()
     MainWindow.show()
     sys.exit(app.exec_())
-    # db = DataBase()
-    # user = Passenger('piotr', '', 'piotr', 'piotr', 'piotr')
-    # fl = db.getFlight('1568')
-    # db.addTicket(user, fl)
+    # user = Passenger('piotr', '', 'Ad', 'piotr', 'piotr')
+    # flight = db.getFlight('LOTPL2121')
+    # db.addTicket(user, flight)
