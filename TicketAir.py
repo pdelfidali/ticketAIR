@@ -246,9 +246,9 @@ class DataBase:
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         cur.execute(f'SELECT * FROM flights WHERE origin = "{origin}" AND destination = "{destination}"')
-        origin, destination, flightNumber, tailNumber, date, price, time = cur.fetchone()
+        origin, destination, flightNumber, tailNumber, date, price, time, capacity, sold = cur.fetchone()
         con.close()
-        return Flight(origin, destination, flightNumber, tailNumber, date, price, time)
+        return Flight(origin, destination, flightNumber, tailNumber, date, price, time, sold)
 
     def addTicket(self, user, flight, amount):
         con = sqlite3.connect('ticketair.db')

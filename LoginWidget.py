@@ -232,7 +232,7 @@ class Ui_LOGINWidget(object):
         db = TicketAir.DataBase()
         if self.NEWUSERRadioButton.isChecked():
             if not db.nickTaken(self.USERLabel.text()):
-                user = Passenger(self.USERLabel.text(), '', '', self.PASSWORDLabel.text(), self.USERLabel.text())
+                user = TicketAir.Passenger(self.USERLabel.text(), '', '', self.PASSWORDLabel.text(), self.USERLabel.text())
                 db.addUser(user)
                 self.home.setUser(user)
             else:

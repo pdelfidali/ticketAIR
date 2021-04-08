@@ -645,8 +645,8 @@ class Ui_ADMINPanel(object):
         try:
             db = TicketAir.DataBase()
             db.addPlane(
-                Plane(self.YEAROFPRDAddLabel.text(), self.FLIGHTSMILESAddLabel.text(), self.CAPACITYAddLabel.text(),
-                      self.PLANENUMBERAddPlaneLabel.text()))
+                TicketAir.Plane(self.YEAROFPRDAddLabel.text(), self.FLIGHTSMILESAddLabel.text(), self.CAPACITYAddLabel.text(),
+                                self.PLANENUMBERAddPlaneLabel.text()))
         except:
             pass
 

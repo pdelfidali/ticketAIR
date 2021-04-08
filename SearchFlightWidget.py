@@ -192,7 +192,7 @@ class Ui_SEARCHFLIGHTPanel(object):
     def setFlight(self, flight):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        sqlquery = f'SELECT * FROM flights WHERE origin = "{flight.origin}" AND destination = "{flight.destination}" LIMIT 8'
+        sqlquery = f'SELECT * FROM flights WHERE origin = "{flight.origin}" AND destination = "{flight.destination}"'
         tablerow = 0
 
         for row in cur.execute(sqlquery):
