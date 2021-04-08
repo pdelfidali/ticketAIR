@@ -738,11 +738,15 @@ class Ui_MainWindow(object):
         try:
             self.db = TicketAir.DataBase()
             flight = self.db.getFlight(str(self.ENTERFLIGHTCODELabel.text()))
-            self.SEARCHFLIGHTPanel = QtWidgets.QWidget()
-            self.ui = Ui_SEARCHFLIGHTPanel()
-            self.ui.setupUi(self.SEARCHFLIGHTPanel)
-            self.SEARCHFLIGHTPanel.show()
-            self.ui.setFlight(flight)
+            if flight != None:
+                self.SEARCHFLIGHTPanel = QtWidgets.QWidget()
+                self.ui = Ui_SEARCHFLIGHTPanel()
+                self.ui.setupUi(self.SEARCHFLIGHTPanel)
+                self.SEARCHFLIGHTPanel.show()
+                self.ui.setFlight(flight)
+            else:
+                self.NOTFOUNDEDFrame.show()
+                self.NOTFOUNDEDLabel.setText('There is no flight with that number.')
         except:
             self.NOTFOUNDEDFrame.show()
             self.NOTFOUNDEDLabel.setText('There is no flight with that number.')
