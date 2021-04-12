@@ -15,7 +15,7 @@ from AdminWidget import Ui_ADMINPanel
 from SearchFlightWidget import Ui_SEARCHFLIGHTPanel
 from SearchPlaneWidget import Ui_SEARCHPLANEPanel
 from BuyTicketWidget import Ui_BUYTICKETPanel
-
+import sched, time
 
 class Ui_MainWindow(object):
 
@@ -763,6 +763,7 @@ class Ui_MainWindow(object):
         except:
             self.NOTFOUNDEDFrame.show()
             self.NOTFOUNDEDLabel.setText('There is no flight with that destination.')
+
     def closePopup(self):
         self.NOTFOUNDEDFrame.hide()
 
@@ -777,7 +778,7 @@ class Ui_MainWindow(object):
     def showBuyTicket(self):
         if self.currentUser != None:
             self.BUYTICKETPanel = QtWidgets.QWidget()
-            self.ui = Ui_BUYTICKETPanel(nick= self.currentUser.login, flight='')
+            self.ui = Ui_BUYTICKETPanel(nick=self.currentUser.login, flight='')
             self.ui.setupUi(self.BUYTICKETPanel)
             self.BUYTICKETPanel.show()
         else:
@@ -786,6 +787,21 @@ class Ui_MainWindow(object):
 
     def __init__(self):
         self.currentUser = None
+
+    def callThisFunctionEvery15Secs(self):
+        import threading
+        threading.Timer(15.0, self.callThisFunctionEvery15Secs).start()
+        db = TicketAir.DataBase()
+        flights = db.get3RandomFlights()
+        self.TOLabel1.setText(str(flights[0].destination))
+        self.TOLabel2.setText(str(flights[1].destination))
+        self.TOLabel3.setText(str(flights[2].destination))
+        self.FROMLabel1.setText(str(flights[0].origin))
+        self.FROMLabel2.setText(str(flights[1].origin))
+        self.FROMLabel3.setText(str(flights[2].origin))
+        self.PRICELabel1.setText(str(flights[0].price))
+        self.PRICELabel2.setText(str(flights[1].price))
+        self.PRICELabel3.setText(str(flights[2].price))
 
 import file
 
@@ -798,4 +814,5 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     ui.setOrigins()
     MainWindow.show()
+    ui.callThisFunctionEvery15Secs()
     sys.exit(app.exec_())

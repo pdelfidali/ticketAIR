@@ -261,6 +261,20 @@ class DataBase:
         con.commit()
         con.close()
 
+    def get3RandomFlights(self):
+        import random
+        con = sqlite3.connect('ticketair.db')
+        cur = con.cursor()
+        cur.execute('SELECT COUNT(*) FROM flights')
+        flightCount = cur.fetchone()[0]
+        flightsN = random.sample(range(0, flightCount), 3)
+        flights = []
+        for n in flightsN:
+            cur.execute(f'SELECT * FROM flights LIMIT {n-1},1')
+            origin, destination, flightNumber, tailNumber, date, price, time, capacity, sold = cur.fetchone()
+            flights.append(Flight(origin, destination, flightNumber, tailNumber, date, price, time, sold))
+        return flights
+
 
 if __name__ == '__main__':
     db = DataBase()
@@ -270,8 +284,6 @@ if __name__ == '__main__':
     ui = HomePage.Ui_MainWindow()
     ui.setupUi(MainWindow)
     ui.setOrigins()
+    ui.callThisFunctionEvery15Secs()
     MainWindow.show()
     sys.exit(app.exec_())
-    # user = Passenger('piotr', '', 'Ad', 'piotr', 'piotr')
-    # flight = db.getFlight('LOTPL2121')
-    # db.addTicket(user, flight)
