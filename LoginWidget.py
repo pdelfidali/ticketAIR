@@ -225,6 +225,7 @@ class Ui_LOGINWidget(object):
         self.LOGINButton.setText(_translate("LOGINWidget", "LOGIN "))
         self.NEWUSERLabel.setText(_translate("LOGINWidget", "NEW USER"))
 
+
     def __init__(self, home):
         self.home = home
 
@@ -252,6 +253,7 @@ class Ui_LOGINWidget(object):
 
     def closePopup(self):
         self.ERRORFrame.hide()
+
 import file
 
 if __name__ == "__main__":
