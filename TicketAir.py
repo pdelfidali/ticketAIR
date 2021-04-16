@@ -27,7 +27,9 @@ class Flight:
         self.sold = sold
 
     def values(self):
-        return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.plane.tailNumber}", "{self.date}", {self.price}, {self.time}, {self.plane.capacity}, {self.sold})'
+        return f'("{self.origin}", "{self.destination}", "{self.flightNumber}", "{self.plane.tailNumber}",' \
+               f' "{self.date}", {self.price}, {self.time}, {self.plane.capacity}, {self.sold})'
+
 
 
 class Plane:
@@ -141,7 +143,6 @@ class DataBase:
     def addFlight(self, flight):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        print('executed INSERT INTO flights VALUES ' + flight.values())
         cur.execute('INSERT INTO flights VALUES ' + flight.values())
         con.commit()
         con.close()

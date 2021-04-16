@@ -711,10 +711,15 @@ class Ui_MainWindow(object):
             pass
 
     def showLoginWidget(self):
-        self.LOGINWidget = QtWidgets.QWidget()
-        self.ui = Ui_LOGINWidget(self)
-        self.ui.setupUi(self.LOGINWidget)
-        self.LOGINWidget.show()
+        if self.currentUser is None:
+            self.LOGINWidget = QtWidgets.QWidget()
+            self.ui = Ui_LOGINWidget(self)
+            self.ui.setupUi(self.LOGINWidget)
+            self.LOGINWidget.show()
+        else:
+            self.currentUser = None
+            self.LOGINButton.setText('LOGIN')
+            self.USERNAMELabel.setText('USERNAME')
 
     def showAdminPanel(self):
         self.ADMINPanel = QtWidgets.QWidget()
@@ -775,6 +780,8 @@ class Ui_MainWindow(object):
             self.AMINPANELButton.show()
         else:
             self.AMINPANELButton.hide()
+        if self.currentUser != None:
+            self.LOGINButton.setText('LOGOUT')
 
     def showBuyTicket(self):
         if self.currentUser != None:
@@ -791,7 +798,7 @@ class Ui_MainWindow(object):
 
     def callThisFunctionEvery15Secs(self):
         import threading
-        threading.Timer(2.0, self.callThisFunctionEvery15Secs).start()
+        threading.Timer(15.0, self.callThisFunctionEvery15Secs).start()
         db = TicketAir.DataBase()
         flights = db.get3RandomFlights()
         self.TOLabel1.setText(str(flights[0].destination))
