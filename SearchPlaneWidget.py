@@ -49,7 +49,7 @@ class Ui_SEARCHPLANEPanel(object):
         self.TAILNUMBERLabel = QtWidgets.QLabel(self.main)
         self.TAILNUMBERLabel.setGeometry(QtCore.QRect(450, 90, 341, 81))
         font = QtGui.QFont()
-        font.setPointSize(28)
+        font.setPointSize(24)
         font.setBold(True)
         font.setWeight(75)
         self.TAILNUMBERLabel.setFont(font)
