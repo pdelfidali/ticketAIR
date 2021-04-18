@@ -611,18 +611,20 @@ class Ui_ADMINPanel(object):
 
     def deleteFlight(self):
         try:
-            db = TicketAir.DataBase()
-            db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text()))
-            print('deleteFlight')
+            self.db = TicketAir.DataBase()
+            flight = self.db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text()))
+            print(flight)
+            self.FLIGHTNUMBERDeleteLabel.setText('')
         except:
             self.ERRORFrame.show()
             self.ERRORLabel('Could not delete this flight.')
 
     def deletePlane(self):
         try:
-            db = TicketAir.DataBase()
-            db.removePlane(str(self.PLANENUMBERDeleteLabel.text()))
-            print(str(self.PLANENUMBERDeleteLabel.text()))
+            self.db = TicketAir.DataBase()
+            plane = TicketAir.removePlane(str(self.PLANENUMBERDeleteLabel.text()))
+            print(plane)
+            self.PLANENUMBERDeleteLabel.setText('')
         except:
             self.ERRORFrame.show()
             self.ERRORLabel.setText('There is no plane with that tail number.')
@@ -636,6 +638,14 @@ class Ui_ADMINPanel(object):
                        float(self.TIMEAddLabel.text()))
 
             self.db.addFlight(flight)
+
+            self.FROMAddLabel.setText('')
+            self.TOAddLabel.setText('')
+            self.DATEAddLabel.setText('')
+            self.TIMEAddLabel.setText('')
+            self.FLIGHTNUMBERAddLabel.setText('')
+            self.PLANENUMBERAddFlightLabel.setText('')
+            self.PRICEAddLabel.setText('')
         except:
             self.ERRORFrame.show()
             self.ERRORLabel.setText("Couldn't add this plane, check values")
@@ -647,6 +657,11 @@ class Ui_ADMINPanel(object):
             db.addPlane(
                 TicketAir.Plane(self.YEAROFPRDAddLabel.text(), self.FLIGHTSMILESAddLabel.text(), self.CAPACITYAddLabel.text(),
                                 self.PLANENUMBERAddPlaneLabel.text()))
+
+            self.PLANENUMBERAddPlaneLabel.setText('')
+            self.YEAROFPRDAddLabel.setText('')
+            self.FLIGHTSMILESAddLabel.setText('')
+            self.CAPACITYAddLabel.setText('')
         except:
             pass
 

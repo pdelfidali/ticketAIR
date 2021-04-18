@@ -720,6 +720,8 @@ class Ui_MainWindow(object):
             self.currentUser = None
             self.LOGINButton.setText('LOGIN')
             self.USERNAMELabel.setText('USERNAME')
+            self.AMINPANELButton.hide()
+
 
     def showAdminPanel(self):
         self.ADMINPanel = QtWidgets.QWidget()
@@ -736,6 +738,7 @@ class Ui_MainWindow(object):
             self.ui.setupUi(self.SEARCHPLANEPanel)
             self.SEARCHPLANEPanel.show()
             self.ui.setPlane(plane)
+            self.ENTERPLANECODELabel.setText('')
         except:
             self.NOTFOUNDEDFrame.show()
             self.NOTFOUNDEDLabel.setText('There is no plane with that tail number.')
@@ -750,6 +753,7 @@ class Ui_MainWindow(object):
                 self.ui.setupUi(self.SEARCHFLIGHTPanel)
                 self.SEARCHFLIGHTPanel.show()
                 self.ui.setFlight(flight)
+                self.ENTERFLIGHTCODELabel.setText('')
             else:
                 self.NOTFOUNDEDFrame.show()
                 self.NOTFOUNDEDLabel.setText('There is no flight with that number.')
@@ -821,6 +825,6 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     ui.setOrigins()
-    ui.callThisFunctionEvery15Secs()
+    #ui.callThisFunctionEvery15Secs()
     MainWindow.show()
     sys.exit(app.exec_())

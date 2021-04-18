@@ -87,9 +87,9 @@ class Ui_LOGINWidget(object):
         self.main.setFrameShadow(QtWidgets.QFrame.Raised)
         self.main.setObjectName("main")
         self.USERLabel = QtWidgets.QLineEdit(self.main)
-        self.USERLabel.setGeometry(QtCore.QRect(120, 330, 200, 45))
+        self.USERLabel.setGeometry(QtCore.QRect(120, 330, 220, 45))
         font = QtGui.QFont()
-        font.setPointSize(9)
+        font.setPointSize(8)
         self.USERLabel.setFont(font)
         self.USERLabel.setStyleSheet("QLineEdit {\n"
                                      "    border: 2px solid rgb(45,45,45);\n"
@@ -111,9 +111,9 @@ class Ui_LOGINWidget(object):
         self.USERLabel.setMaxLength(100)
         self.USERLabel.setObjectName("USERLabel")
         self.PASSWORDLabel = QtWidgets.QLineEdit(self.main)
-        self.PASSWORDLabel.setGeometry(QtCore.QRect(120, 380, 200, 45))
+        self.PASSWORDLabel.setGeometry(QtCore.QRect(120, 380, 220, 45))
         font = QtGui.QFont()
-        font.setPointSize(9)
+        font.setPointSize(8)
         self.PASSWORDLabel.setFont(font)
         self.PASSWORDLabel.setStyleSheet("QLineEdit {\n"
                                          "    border: 2px solid rgb(45,45,45);\n"
@@ -239,6 +239,8 @@ class Ui_LOGINWidget(object):
             else:
                 self.ERRORFrame.show()
                 self.ERRORLabel.setText('Username is already taken')
+                self.USERLabel.setText('')
+                self.PASSWORDLabel.setText('')
         elif db.nickTaken(self.USERLabel.text()):
             user = db.login(self.USERLabel.text(), self.PASSWORDLabel.text())
             if user != None:
@@ -246,9 +248,12 @@ class Ui_LOGINWidget(object):
             else:
                 self.ERRORFrame.show()
                 self.ERRORLabel.setText('Wrong password')
+                self.PASSWORDLabel.setText('')
         else:
             self.ERRORFrame.show()
             self.ERRORLabel.setText('No user with this nick')
+            self.USERLabel.setText('')
+            self.PASSWORDLabel.setText('')
 
 
     def closePopup(self):
