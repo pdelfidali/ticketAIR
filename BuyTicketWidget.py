@@ -448,9 +448,9 @@ class Ui_BUYTICKETPanel(object):
         self.ERRORXButton.clicked.connect(self.hideError)
         self.NUMBEROFPASSENGERSComboBox.activated.connect(self.updatePrice)
 
-        self.HANDLUGGAGERadioButton.toggled.connect(self.updatePrice)
-        self.HANDLUGGAGERadioButton.toggled.connect(self.updatePrice)
-        self.UNDER15KGRadioButton.toggled.connect(self.updatePrice)
+        self.HANDLUGGAGERadioButton.toggled.connect(self.updateLuggagePrice)
+        self.HANDLUGGAGERadioButton.toggled.connect(self.updateLuggagePrice)
+        self.UNDER15KGRadioButton.toggled.connect(self.updateLuggagePrice)
 
     def retranslateUi(self, BUYTICKETPanel):
         _translate = QtCore.QCoreApplication.translate
@@ -476,7 +476,14 @@ class Ui_BUYTICKETPanel(object):
 
     def buyTicket(self):
         db = TicketAir.DataBase()
-        db.addTicket(self.nick, db.getFlight(self.FLIGHTNUMBERLabel.text()), int(self.NUMBEROFPASSENGERSComboBox.currentText()))
+        luggage = 0
+        if self.UNDER15KGRadioButton.isChecked():
+            luggage = 1
+        if self.OVER15KGRadioButton.isChecked():
+            luggage = 2
+        flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
+        ticket = TicketAir.Ticket(flight, self.price, int(self.NUMBEROFPASSENGERSComboBox.currentText()), luggage)
+        db.addTicket(self.nick, ticket)
 
     def edited(self):
         db = TicketAir.DataBase()
@@ -515,13 +522,15 @@ class Ui_BUYTICKETPanel(object):
     def updatePrice(self):
         db = TicketAir.DataBase()
         flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
-        price = flight.price
-        #Luggage
-        if self.OVER15KGRadioButton.isChecked():
-            price = price * 1.15
+        self.price = flight.price
+        self.TOTALPRICELabel.setText(str(self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+
+    def updateLuggagePrice(self):                   #Luggage
         if self.UNDER15KGRadioButton.isChecked():
-            price = price * 1.05
-        self.TOTALPRICELabel.setText(str(price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+            self.price = self.price * 1.05
+        if self.OVER15KGRadioButton.isChecked():
+            self.price = self.price * 1.15
+        self.TOTALPRICELabel.setText(str(self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
 
 
 import file

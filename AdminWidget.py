@@ -610,21 +610,19 @@ class Ui_ADMINPanel(object):
         self.DELETEPLANEButton.setText(_translate("ADMINPanel", "DELETE PLANE"))
 
     def deleteFlight(self):
-        try:
-            self.db = TicketAir.DataBase()
-            self.db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text()))
-            self.FLIGHTNUMBERDeleteLabel.setText('')
-        except:
-            self.ERRORFrame.show()
-            self.ERRORLabel('Could not delete this flight.')
+        self.db = TicketAir.DataBase()
+        self.ERRORFrame.show()
+        if self.db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text())):
+            self.ERRORLabel.setText(f'Successfully deleted flight with number: {str(self.FLIGHTNUMBERDeleteLabel.text())}')
+        else:
+            self.ERRORLabel.setText('Could not delete this flight.')
 
     def deletePlane(self):
-        try:
-            self.db = TicketAir.DataBase()
-            self.db.removePlane(str(self.PLANENUMBERDeleteLabel.text()))
-            self.PLANENUMBERDeleteLabel.setText('')
-        except:
-            self.ERRORFrame.show()
+        self.db = TicketAir.DataBase()
+        self.ERRORFrame.show()
+        if self.db.removePlane(str(self.PLANENUMBERDeleteLabel.text())):
+            self.ERRORLabel.setText(f'Successfully deleted plane with tail number: {str(self.PLANENUMBERDeleteLabel.text())}')
+        else:
             self.ERRORLabel.setText('There is no plane with that tail number.')
 
     def addFlight(self):

@@ -52,13 +52,15 @@ class Plane:
 class Ticket:
     def __init__(self):
         self.flight = None
-        self.day = None
         self.price = 0
+        self.places = 0
+        self.luggageID = 0
 
-    def __init__(self, flight, day, price):
+    def __init__(self, flight, price, places, luggageID):
         self.flight = flight
-        self.day = day
         self.price = price
+        self.places = places
+        self.luggageID = luggageID
 
     def buyTicket(self, passenger):
         passenger.tickets.append(self)
@@ -115,7 +117,7 @@ class DataBase:
         cur = con.cursor()
         try:
             cur.execute('''CREATE TABLE flights
-                            (origin text, destination text, flightNumber text, planeTailNumber text, date text, price real, time real, capacity integer, sold integer)
+                            (origin text, destination text, flightNumber text, planeTailNumber text, price real, time real, capacity integer, sold integer)
                         ''')
         except sqlite3.OperationalError:
             pass
@@ -133,7 +135,7 @@ class DataBase:
             pass
         try:
             cur.execute('''CREATE TABLE tickets
-                            (flightNumber text, day text, price real)
+                            (flightNumber text, price real, places integer, luggageID integer)
                         ''')
         except sqlite3.OperationalError:
             pass
@@ -212,15 +214,20 @@ class DataBase:
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         cur.execute(f"DELETE FROM flights WHERE flightNumber='{flightNumber}'")
+        deleted = cur.rowcount
         con.commit()
         con.close()
+        return deleted >= 1
 
     def removePlane(self, tailNumber):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
         cur.execute(f"DELETE FROM planes WHERE tailNumber='{tailNumber}'")
+        deleted = cur.rowcount
+        cur.execute(f"DELETE FROM flights WHERE planeTailNumber='{tailNumber}'")
         con.commit()
         con.close()
+        return deleted >= 1
 
     def nickTaken(self, nick):
         con = sqlite3.connect('ticketair.db')
@@ -251,14 +258,14 @@ class DataBase:
         con.close()
         return Flight(origin, destination, flightNumber, tailNumber, date, price, time, sold)
 
-    def addTicket(self, user, flight, amount):
+    def addTicket(self, user, ticket):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        cur.execute(f"INSERT INTO tickets VALUES ('{flight.flightNumber}', '{flight.date}', {flight.price})")
+        cur.execute(f"INSERT INTO tickets VALUES ('{ticket.flight.flightNumber}', {ticket.price}, {ticket.places}, {ticket.luggageID})")
         con.commit()
         cur.execute(f"UPDATE users SET ticketsIDs = ticketsIDs || '{cur.lastrowid}' || '|' WHERE login = '{user}'")
         con.commit()
-        cur.execute(f"UPDATE flights SET sold = sold + {amount} WHERE flightNumber = '{flight.flightNumber}'")
+        cur.execute(f"UPDATE flights SET sold = sold + {ticket.places} WHERE flightNumber = '{ticket.flight.flightNumber}'")
         con.commit()
         con.close()
 
