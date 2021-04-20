@@ -36,7 +36,7 @@ class Ui_LOGINWindow(object):
         self.INFOFrame = QtWidgets.QFrame(self.top_bar)
         self.INFOFrame.setMaximumSize(QtCore.QSize(450, 16777215))
         self.INFOFrame.setStyleSheet("background-color: rgb(170, 255, 127);\n"
-"border-radius: 5px;")
+                                     "border-radius: 5px;")
         self.INFOFrame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.INFOFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.INFOFrame.setObjectName("INFOFrame")
@@ -54,20 +54,20 @@ class Ui_LOGINWindow(object):
         self.INFOXButton = QtWidgets.QPushButton(self.INFOFrame)
         self.INFOXButton.setMaximumSize(QtCore.QSize(20, 20))
         self.INFOXButton.setStyleSheet("QPushButton {\n"
-"    border-raadius: 5px;\n"
-"    background-position: centre;\n"
-"    border: 2px solid;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(50, 50, 50);\n"
-"    color: rgb(255, 234, 70);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(35, 35, 35);\n"
-"    color: rgb(255, 234, 70);\n"
-"}")
+                                       "    border-raadius: 5px;\n"
+                                       "    background-position: centre;\n"
+                                       "    border: 2px solid;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "    background-color: rgb(50, 50, 50);\n"
+                                       "    color: rgb(255, 234, 70);\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:pressed {\n"
+                                       "    background-color: rgb(35, 35, 35);\n"
+                                       "    color: rgb(255, 234, 70);\n"
+                                       "}")
         self.INFOXButton.setObjectName("INFOXButton")
         self.horizontalLayout_3.addWidget(self.INFOXButton)
         self.horizontalLayout_2.addWidget(self.INFOFrame)
@@ -86,7 +86,7 @@ class Ui_LOGINWindow(object):
         font.setPointSize(12)
         self.PASSWORDLabel.setFont(font)
         self.PASSWORDLabel.setStyleSheet("background-color: rgb(57, 57, 57);\n"
-"border-radius: 10px;")
+                                         "border-radius: 10px;")
         self.PASSWORDLabel.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.PASSWORDLabel.setFrameShadow(QtWidgets.QFrame.Raised)
         self.PASSWORDLabel.setObjectName("PASSWORDLabel")
@@ -96,22 +96,22 @@ class Ui_LOGINWindow(object):
         font.setPointSize(10)
         self.NUMBEROFPASSENGERSLabel.setFont(font)
         self.NUMBEROFPASSENGERSLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    \n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(255,255,127);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                                   "    border: 2px solid rgb(45,45,45);\n"
+                                                   "    border-radius: 5px;    \n"
+                                                   "    padding: 15 px;\n"
+                                                   "    background-color: rgb(30,30,30);\n"
+                                                   "    \n"
+                                                   "    color: rgb(255, 255, 255);\n"
+                                                   "}\n"
+                                                   "\n"
+                                                   "QLineEdit:hover {\n"
+                                                   "    border: 2px solid rgb(55,55,55);\n"
+                                                   "}\n"
+                                                   "\n"
+                                                   "QLineEdit:focus {\n"
+                                                   "    border: 2px solid rgb(255,255,127);\n"
+                                                   "    color: rgb(200,200,200)\n"
+                                                   "}")
         self.NUMBEROFPASSENGERSLabel.setText("")
         self.NUMBEROFPASSENGERSLabel.setMaxLength(100)
         self.NUMBEROFPASSENGERSLabel.setObjectName("NUMBEROFPASSENGERSLabel")
@@ -122,17 +122,17 @@ class Ui_LOGINWindow(object):
         font.setPointSize(10)
         self.HANGLUGGAGEBox.setFont(font)
         self.HANGLUGGAGEBox.setStyleSheet("QCheckBox::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                          "    border: 3px solid rgb(100,100,100);\n"
+                                          "    width: 15px;\n"
+                                          "    height: 15px;\n"
+                                          "    border-radius: 10px;\n"
+                                          "    background-color: rgb(135, 135, 135);\n"
+                                          "}\n"
+                                          "\n"
+                                          "QCheckBox::indicator:checked {\n"
+                                          "    border: 3px solid rgb(255,255,0);\n"
+                                          "    background-color: rgb(255, 255, 127);\n"
+                                          "}")
         self.HANGLUGGAGEBox.setText("")
         self.HANGLUGGAGEBox.setObjectName("HANGLUGGAGEBox")
         self.BUYButton = QtWidgets.QPushButton(self.PASSWORDLabel)
@@ -143,24 +143,24 @@ class Ui_LOGINWindow(object):
         font.setWeight(75)
         self.BUYButton.setFont(font)
         self.BUYButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(60,60,60);\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(60, 60, 60);\n"
-"    border: 2px solid rgb(70,70,70);\n"
-"    border-radius: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 5px;\n"
-"    \n"
-"    color: rgb(35, 35, 35);\n"
-"}")
+                                     "    background-color: rgb(255, 255, 127);\n"
+                                     "    border: 2px solid rgb(60,60,60);\n"
+                                     "    border-radius: 5px;\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton:hover {\n"
+                                     "    background-color: rgb(60, 60, 60);\n"
+                                     "    border: 2px solid rgb(70,70,70);\n"
+                                     "    border-radius: 5px;\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton:pressed {\n"
+                                     "    background-color: rgb(255, 255, 127);\n"
+                                     "    border: 2px solid rgb(0,0,0);\n"
+                                     "    border-radius: 5px;\n"
+                                     "    \n"
+                                     "    color: rgb(35, 35, 35);\n"
+                                     "}")
         self.BUYButton.setObjectName("BUYButton")
         self.SURNAMELabel = QtWidgets.QLineEdit(self.PASSWORDLabel)
         self.SURNAMELabel.setGeometry(QtCore.QRect(370, 240, 221, 45))
@@ -168,22 +168,22 @@ class Ui_LOGINWindow(object):
         font.setPointSize(10)
         self.SURNAMELabel.setFont(font)
         self.SURNAMELabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    \n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(255,255,127);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                        "    border: 2px solid rgb(45,45,45);\n"
+                                        "    border-radius: 5px;    \n"
+                                        "    padding: 15 px;\n"
+                                        "    background-color: rgb(30,30,30);\n"
+                                        "    \n"
+                                        "    color: rgb(255, 255, 255);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:hover {\n"
+                                        "    border: 2px solid rgb(55,55,55);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QLineEdit:focus {\n"
+                                        "    border: 2px solid rgb(255,255,127);\n"
+                                        "    color: rgb(200,200,200)\n"
+                                        "}")
         self.SURNAMELabel.setText("")
         self.SURNAMELabel.setMaxLength(100)
         self.SURNAMELabel.setObjectName("SURNAMELabel")
@@ -193,22 +193,22 @@ class Ui_LOGINWindow(object):
         font.setPointSize(10)
         self.NAMELabel.setFont(font)
         self.NAMELabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    \n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(255,255,127);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                     "    border: 2px solid rgb(45,45,45);\n"
+                                     "    border-radius: 5px;    \n"
+                                     "    padding: 15 px;\n"
+                                     "    background-color: rgb(30,30,30);\n"
+                                     "    \n"
+                                     "    color: rgb(255, 255, 255);\n"
+                                     "}\n"
+                                     "\n"
+                                     "QLineEdit:hover {\n"
+                                     "    border: 2px solid rgb(55,55,55);\n"
+                                     "}\n"
+                                     "\n"
+                                     "QLineEdit:focus {\n"
+                                     "    border: 2px solid rgb(255,255,127);\n"
+                                     "    color: rgb(200,200,200)\n"
+                                     "}")
         self.NAMELabel.setText("")
         self.NAMELabel.setMaxLength(100)
         self.NAMELabel.setObjectName("NAMELabel")
@@ -218,22 +218,22 @@ class Ui_LOGINWindow(object):
         font.setPointSize(10)
         self.FLIGHTNUMBERLabel.setFont(font)
         self.FLIGHTNUMBERLabel.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid rgb(45,45,45);\n"
-"    border-radius: 5px;    \n"
-"    padding: 15 px;\n"
-"    background-color: rgb(30,30,30);\n"
-"    \n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QLineEdit:hover {\n"
-"    border: 2px solid rgb(55,55,55);\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 2px solid rgb(255,255,127);\n"
-"    color: rgb(200,200,200)\n"
-"}")
+                                             "    border: 2px solid rgb(45,45,45);\n"
+                                             "    border-radius: 5px;    \n"
+                                             "    padding: 15 px;\n"
+                                             "    background-color: rgb(30,30,30);\n"
+                                             "    \n"
+                                             "    color: rgb(255, 255, 255);\n"
+                                             "}\n"
+                                             "\n"
+                                             "QLineEdit:hover {\n"
+                                             "    border: 2px solid rgb(55,55,55);\n"
+                                             "}\n"
+                                             "\n"
+                                             "QLineEdit:focus {\n"
+                                             "    border: 2px solid rgb(255,255,127);\n"
+                                             "    color: rgb(200,200,200)\n"
+                                             "}")
         self.FLIGHTNUMBERLabel.setText("")
         self.FLIGHTNUMBERLabel.setMaxLength(100)
         self.FLIGHTNUMBERLabel.setObjectName("FLIGHTNUMBERLabel")
@@ -251,17 +251,17 @@ class Ui_LOGINWindow(object):
         font.setPointSize(10)
         self.UNDER15KGBox.setFont(font)
         self.UNDER15KGBox.setStyleSheet("QCheckBox::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                        "    border: 3px solid rgb(100,100,100);\n"
+                                        "    width: 15px;\n"
+                                        "    height: 15px;\n"
+                                        "    border-radius: 10px;\n"
+                                        "    background-color: rgb(135, 135, 135);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QCheckBox::indicator:checked {\n"
+                                        "    border: 3px solid rgb(255,255,0);\n"
+                                        "    background-color: rgb(255, 255, 127);\n"
+                                        "}")
         self.UNDER15KGBox.setText("")
         self.UNDER15KGBox.setObjectName("UNDER15KGBox")
         self.OVER15KGBox = QtWidgets.QCheckBox(self.PASSWORDLabel)
@@ -271,17 +271,17 @@ class Ui_LOGINWindow(object):
         font.setPointSize(10)
         self.OVER15KGBox.setFont(font)
         self.OVER15KGBox.setStyleSheet("QCheckBox::indicator {\n"
-"    border: 3px solid rgb(100,100,100);\n"
-"    width: 15px;\n"
-"    height: 15px;\n"
-"    border-radius: 10px;\n"
-"    background-color: rgb(135, 135, 135);\n"
-"}\n"
-"\n"
-"QCheckBox::indicator:checked {\n"
-"    border: 3px solid rgb(255,255,0);\n"
-"    background-color: rgb(255, 255, 127);\n"
-"}")
+                                       "    border: 3px solid rgb(100,100,100);\n"
+                                       "    width: 15px;\n"
+                                       "    height: 15px;\n"
+                                       "    border-radius: 10px;\n"
+                                       "    background-color: rgb(135, 135, 135);\n"
+                                       "}\n"
+                                       "\n"
+                                       "QCheckBox::indicator:checked {\n"
+                                       "    border: 3px solid rgb(255,255,0);\n"
+                                       "    background-color: rgb(255, 255, 127);\n"
+                                       "}")
         self.OVER15KGBox.setText("")
         self.OVER15KGBox.setObjectName("OVER15KGBox")
         self.label_2 = QtWidgets.QLabel(self.PASSWORDLabel)
@@ -371,11 +371,13 @@ class Ui_LOGINWindow(object):
         self.label_5.setText(_translate("LOGINWindow", "TOTAL:"))
         self.TOTALPRICELabel.setText(_translate("LOGINWindow", "189 "))
         self.TOTALPRICECURRENCYLabel.setText(_translate("LOGINWindow", "€"))
-import file
 
+
+import file
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     LOGINWindow = QtWidgets.QMainWindow()
     ui = Ui_LOGINWindow()

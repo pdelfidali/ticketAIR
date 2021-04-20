@@ -448,6 +448,10 @@ class Ui_BUYTICKETPanel(object):
         self.ERRORXButton.clicked.connect(self.hideError)
         self.NUMBEROFPASSENGERSComboBox.activated.connect(self.updatePrice)
 
+        self.HANDLUGGAGERadioButton.toggled.connect(self.updatePrice)
+        self.HANDLUGGAGERadioButton.toggled.connect(self.updatePrice)
+        self.UNDER15KGRadioButton.toggled.connect(self.updatePrice)
+
     def retranslateUi(self, BUYTICKETPanel):
         _translate = QtCore.QCoreApplication.translate
         BUYTICKETPanel.setWindowTitle(_translate("BUYTICKETPanel", "BUY TICKET"))
@@ -511,7 +515,13 @@ class Ui_BUYTICKETPanel(object):
     def updatePrice(self):
         db = TicketAir.DataBase()
         flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
-        self.TOTALPRICELabel.setText(str(flight.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+        price = flight.price
+        #Luggage
+        if self.OVER15KGRadioButton.isChecked():
+            price = price * 1.15
+        if self.UNDER15KGRadioButton.isChecked():
+            price = price * 1.05
+        self.TOTALPRICELabel.setText(str(price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
 
 
 import file

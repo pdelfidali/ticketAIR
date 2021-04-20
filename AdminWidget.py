@@ -612,8 +612,7 @@ class Ui_ADMINPanel(object):
     def deleteFlight(self):
         try:
             self.db = TicketAir.DataBase()
-            flight = self.db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text()))
-            print(flight)
+            self.db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text()))
             self.FLIGHTNUMBERDeleteLabel.setText('')
         except:
             self.ERRORFrame.show()
@@ -622,8 +621,7 @@ class Ui_ADMINPanel(object):
     def deletePlane(self):
         try:
             self.db = TicketAir.DataBase()
-            plane = TicketAir.removePlane(str(self.PLANENUMBERDeleteLabel.text()))
-            print(plane)
+            self.db.removePlane(str(self.PLANENUMBERDeleteLabel.text()))
             self.PLANENUMBERDeleteLabel.setText('')
         except:
             self.ERRORFrame.show()

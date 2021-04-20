@@ -211,24 +211,16 @@ class DataBase:
     def cancelFlight(self, flightNumber):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        try:
-            flightNumber = cur.execute(f"DELETE FROM flights WHERE flightNumber='{flightNumber}'")
-            con.commit()
-            con.close()
-        except:
-            flightNumber = None
-        return flightNumber
+        cur.execute(f"DELETE FROM flights WHERE flightNumber='{flightNumber}'")
+        con.commit()
+        con.close()
 
     def removePlane(self, tailNumber):
         con = sqlite3.connect('ticketair.db')
         cur = con.cursor()
-        try:
-            tailNumber = cur.execute(f"DELETE FROM planes WHERE tailNumber='{tailNumber}'")
-            con.commit()
-            con.close()
-        except:
-            tailNumber = None
-        return tailNumber
+        cur.execute(f"DELETE FROM planes WHERE tailNumber='{tailNumber}'")
+        con.commit()
+        con.close()
 
     def nickTaken(self, nick):
         con = sqlite3.connect('ticketair.db')
