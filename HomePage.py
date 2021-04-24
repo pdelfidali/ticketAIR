@@ -699,6 +699,7 @@ class Ui_MainWindow(object):
 
     def setOrigins(self):
         db = TicketAir.DataBase()
+        self.FROMComboBox.clear()
         self.FROMComboBox.insertItem(1, '')
         origins = db.getOrigins(str(self.TOComboBox.currentText()))
         i = 2
@@ -813,6 +814,7 @@ class Ui_MainWindow(object):
         self.PRICELabel1.setText(str(flights[0].price))
         self.PRICELabel2.setText(str(flights[1].price))
         self.PRICELabel3.setText(str(flights[2].price))
+        self.setOrigins()
 
 import file
 
