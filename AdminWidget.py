@@ -614,6 +614,7 @@ class Ui_ADMINPanel(object):
         self.ERRORFrame.show()
         if self.db.cancelFlight(str(self.FLIGHTNUMBERDeleteLabel.text())):
             self.ERRORLabel.setText(f'Successfully deleted flight with number: {str(self.FLIGHTNUMBERDeleteLabel.text())}')
+            self.home.setOrigins()
         else:
             self.ERRORLabel.setText('Could not delete this flight.')
 
@@ -622,6 +623,7 @@ class Ui_ADMINPanel(object):
         self.ERRORFrame.show()
         if self.db.removePlane(str(self.PLANENUMBERDeleteLabel.text())):
             self.ERRORLabel.setText(f'Successfully deleted plane with tail number: {str(self.PLANENUMBERDeleteLabel.text())}')
+            self.home.setOrigins()
         else:
             self.ERRORLabel.setText('There is no plane with that tail number.')
 
@@ -642,6 +644,7 @@ class Ui_ADMINPanel(object):
             self.FLIGHTNUMBERAddLabel.setText('')
             self.PLANENUMBERAddFlightLabel.setText('')
             self.PRICEAddLabel.setText('')
+            self.home.setOrigins()
         except:
             self.ERRORFrame.show()
             self.ERRORLabel.setText("Couldn't add this plane, check values")
@@ -664,8 +667,8 @@ class Ui_ADMINPanel(object):
     def closeError(self):
         self.ERRORFrame.hide()
 
-
-import file
+    def __init__(self, homePage):
+        self.home = homePage
 
 if __name__ == "__main__":
     import sys
