@@ -196,7 +196,6 @@ class Ui_SEARCHFLIGHTPanel(object):
         tablerow = 0
 
         for row in cur.execute(sqlquery):
-            print(row)
             self.TABLEWidget.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(row[0]))
             self.TABLEWidget.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(row[1]))
             self.TABLEWidget.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(row[2]))

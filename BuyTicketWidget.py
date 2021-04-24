@@ -541,16 +541,17 @@ class Ui_BUYTICKETPanel(object):
         db = TicketAir.DataBase()
         flight = db.getFlight(self.FLIGHTNUMBERLabel.text())
         self.price = flight.price
-        self.TOTALPRICELabel.setText(str(self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+        self.updateLuggagePrice()
 
     def updateLuggagePrice(self):                   #Luggage
-
+        priceValue = 0
         if self.HANDLUGGAGERadioButton.isChecked():
-            self.TOTALPRICELabel.setText(str(self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+            priceValue = self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())
         if self.UNDER15KGRadioButton.isChecked():
-            self.TOTALPRICELabel.setText(str(self.price * 1.05 * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+            priceValue = self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText()) * 1.05
         if self.OVER15KGRadioButton.isChecked():
-            self.TOTALPRICELabel.setText(str(self.price * 1.15 * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+            priceValue = self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText()) * 1.15
+        self.TOTALPRICELabel.setText("%.2f" % priceValue)
 
 
 import file
