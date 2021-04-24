@@ -686,7 +686,6 @@ class Ui_MainWindow(object):
             self.TOComboBox.clear()
             self.TOComboBox.insertItem(1, '')
             destinations = db.getDestinations(str(self.FROMComboBox.currentText()))
-            print(str(self.FROMComboBox.currentText()))
             i = 2
             try:
                 for destination in destinations:

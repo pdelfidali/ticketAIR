@@ -276,7 +276,6 @@ class DataBase:
         cur.execute('SELECT COUNT(*) FROM flights')
         flightCount = cur.fetchone()[0]
         flightsN = random.sample(range(1, flightCount+1), 3)
-        print(flightsN)
         flights = []
         for n in flightsN:
             cur.execute(f'SELECT * FROM flights LIMIT {n-1},1')
