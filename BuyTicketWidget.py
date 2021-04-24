@@ -452,6 +452,13 @@ class Ui_BUYTICKETPanel(object):
         self.HANDLUGGAGERadioButton.toggled.connect(self.updateLuggagePrice)
         self.UNDER15KGRadioButton.toggled.connect(self.updateLuggagePrice)
 
+        self.HANDLUGGAGERadioButton.setEnabled(False)
+        self.UNDER15KGRadioButton.setEnabled(False)
+        self.OVER15KGRadioButton.setEnabled(False)
+
+        self.NAMELabel.setEnabled(False)
+        self.SURNAMELabel.setEnabled(False)
+
     def retranslateUi(self, BUYTICKETPanel):
         _translate = QtCore.QCoreApplication.translate
         BUYTICKETPanel.setWindowTitle(_translate("BUYTICKETPanel", "BUY TICKET"))
@@ -491,15 +498,26 @@ class Ui_BUYTICKETPanel(object):
         if flight != None:
             self.TOTALPRICELabel.setText(str(flight.price))
             self.NAMELabel.setText(str(flight.origin))
-            self.NAMELabel.setEnabled(False)
             self.SURNAMELabel.setText(str(flight.destination))
-            self.SURNAMELabel.setEnabled(False)
             self.BUYButton.setEnabled(True)
             self.updateCombo(flight)
+            self.HANDLUGGAGERadioButton.setEnabled(True)
+            self.UNDER15KGRadioButton.setEnabled(True)
+            self.OVER15KGRadioButton.setEnabled(True)
+            self.price = flight.price
+            self.HANDLUGGAGERadioButton.setChecked(True)
         else:
             self.TOTALPRICELabel.setText('----')
             self.BUYButton.setEnabled(False)
             self.NUMBEROFPASSENGERSComboBox.clear()
+            self.HANDLUGGAGERadioButton.setEnabled(False)
+            self.UNDER15KGRadioButton.setEnabled(False)
+            self.OVER15KGRadioButton.setEnabled(False)
+            self.HANDLUGGAGERadioButton.setChecked(False)
+            self.UNDER15KGRadioButton.setChecked(False)
+            self.OVER15KGRadioButton.setChecked(False)
+            self.NAMELabel.setText('')
+            self.SURNAMELabel.setText('')
 
     def __init__(self, nick, flight = ''):
         self.nick = nick
@@ -526,11 +544,13 @@ class Ui_BUYTICKETPanel(object):
         self.TOTALPRICELabel.setText(str(self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
 
     def updateLuggagePrice(self):                   #Luggage
+
+        if self.HANDLUGGAGERadioButton.isChecked():
+            self.TOTALPRICELabel.setText(str(self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
         if self.UNDER15KGRadioButton.isChecked():
-            self.price = self.price * 1.05
+            self.TOTALPRICELabel.setText(str(self.price * 1.05 * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
         if self.OVER15KGRadioButton.isChecked():
-            self.price = self.price * 1.15
-        self.TOTALPRICELabel.setText(str(self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
+            self.TOTALPRICELabel.setText(str(self.price * 1.15 * int(self.NUMBEROFPASSENGERSComboBox.currentText())))
 
 
 import file
