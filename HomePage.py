@@ -826,6 +826,6 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     ui.setOrigins()
-    #ui.callThisFunctionEvery15Secs()
+    ui.callThisFunctionEvery15Secs()
     MainWindow.show()
     sys.exit(app.exec_())

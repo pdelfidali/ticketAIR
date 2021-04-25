@@ -82,7 +82,6 @@ class Passenger:
         self.login = login
 
     def values(self):
-        # Trzeba dodać ID
         isAdmin = int(isinstance(self, Admin))
         return f'("ID", "{self.name}", "{self.tickets}", "{isAdmin}", "{self.password}", "{self.login}")'
 

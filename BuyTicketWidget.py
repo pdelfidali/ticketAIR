@@ -543,7 +543,7 @@ class Ui_BUYTICKETPanel(object):
         self.price = flight.price
         self.updateLuggagePrice()
 
-    def updateLuggagePrice(self):                   #Luggage
+    def updateLuggagePrice(self):
         priceValue = 0
         if self.HANDLUGGAGERadioButton.isChecked():
             priceValue = self.price * int(self.NUMBEROFPASSENGERSComboBox.currentText())
